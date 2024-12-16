@@ -12,8 +12,9 @@ export class HeaderComponent {
   activeTabIndex = 0;
   routeToTabMapping: { [key: string]: number } = {
     '/home': 0,
-    '/about': 1,
-    '/contact': 2
+    '/news': 1,
+    '/about': 2,
+    '/contact': 3
   };
   currentLanguage:any = '';
 

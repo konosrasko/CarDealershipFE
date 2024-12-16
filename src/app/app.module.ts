@@ -12,9 +12,12 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatCard, MatCardModule} from '@angular/material/card';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInput, MatInputModule} from '@angular/material/input';
 import {MatButton, MatButtonModule} from '@angular/material/button';
+import { NewsComponent } from './news/news.component';
+import {MatOption, MatSelect} from '@angular/material/select';
+import {MatToolbar} from '@angular/material/toolbar';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -24,7 +27,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelect,
+    MatOption,
+    FormsModule,
+    MatToolbar
   ],
   providers: [
     provideAnimationsAsync()
