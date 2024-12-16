@@ -2,5 +2,8 @@
   "title": "SYNERGINN",
   "english": "Αγγλικά",
   "greek": "Ελληνικά",
-  "changeLanguage": "Άλλαξε γλώσσα"
+  "changeLanguage": "Άλλαξε γλώσσα",
+  "home": "Αρχική",
+  "about": "Σχετικά",
+  "contact": "Επικοινωνία"
 }

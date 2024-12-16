@@ -3,5 +3,8 @@
   "GREETING": "Hello, {{name}}!",
   "english": "English",
   "greek": "Greek",
-  "changeLanguage": "Change language"
+  "changeLanguage": "Change language",
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact"
 }

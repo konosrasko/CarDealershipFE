@@ -16,9 +16,9 @@
     <mat-tab-group class="tabs"
                    [(selectedIndex)]="activeTabIndex"
                    (selectedIndexChange)="onTabChange($event)">
-      <mat-tab label="Home"></mat-tab>
-      <mat-tab label="About"></mat-tab>
-      <mat-tab label="Contact"></mat-tab>
+      <mat-tab label="{{'home' | translate}}"></mat-tab>
+      <mat-tab label="{{'about' | translate}}"></mat-tab>
+      <mat-tab label="{{'contact' | translate}}"></mat-tab>
     </mat-tab-group>
   </mat-toolbar-row>
 </mat-toolbar>

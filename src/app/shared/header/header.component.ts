@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import {MatMenuTrigger} from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
@@ -29,9 +30,8 @@ export class HeaderComponent {
 
   onTabChange(event: any) {
     const tabToRouteMapping = Object.keys(this.routeToTabMapping).find(
-      (key) => this.routeToTabMapping[key] === event.index
+      (key) => this.routeToTabMapping[key] === event
     );
-
     if (tabToRouteMapping) {
       this.router.navigate([tabToRouteMapping]);
     }
