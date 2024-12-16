@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --primary-color: #104c8c; /* Cyan */
+  --complementary-color: #FF6F61; /* Coral */
+  --dark-shade: #008F8C; /* Dark Cyan */
+  --light-shade: #A1F2F0; /* Light Cyan */
+  --light-primary: #28ace4; /* Light Cyan */
+  --light-gray: #F4F4F4; /* Light Gray */
+  --medium-gray: #B0B0B0; /* Medium Gray */
+  --dark-gray: #333333; /* Dark Gray */
+  --mat-primary: #4caf50; /* Primary color */
+  --mat-primary-contrast: #ffffff; /* Contrast color for text/icons */
+}
+
+.header {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.left-button {
+  position: absolute;
+  left: 0;
+}
+
+.tabs {
+  flex-grow: 0;
+  text-align: center;
+}
+
+.button{
+  background-color: var(--light-primary);
+  color: var(--light-primary);
+}
+
+.footer{
+  background-color: var(--primary-color);
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content-container {
+  flex-grow: 1;
+}
+
+.app-footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+.spacer {
+  flex: 1 1 auto
+}
+
