@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  primaryColor = 'var(--primary-color)';
+
+  constructor(private translate: TranslateService) {
+    if (!localStorage.getItem('language')) {
+      localStorage.setItem('language', 'el');
+    }
+    this.translate.setDefaultLang(localStorage.getItem('language') || 'el');
+  }
 }

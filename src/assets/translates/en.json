@@ -1,0 +1,7 @@
+{
+  "title": "SYNERGINN",
+  "GREETING": "Hello, {{name}}!",
+  "english": "English",
+  "greek": "Greek",
+  "changeLanguage": "Change language"
+}

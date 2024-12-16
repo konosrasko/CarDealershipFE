@@ -1,12 +1,35 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <mat-toolbar-row class="header">
-    <div class="left-button">
-      <h1 [routerLink]="['/home']" style="padding: 10%;">SYNERGIN</h1>
+    <div class="logo">
+      <img src="assets/images/logo-transparent.png" [routerLink]="['/home']" alt="Logo"/>
     </div>
-    <mat-tab-group class="tabs">
+    <div class="right-button">
+       <span class="topBar-language">
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" matTooltip="{{ 'changeLanguage' | translate }}">
+      <img *ngIf="localStorage.getItem('language') === 'en'" src="assets/images/flags/en-round.png" alt="English Flag" class="language-flag"/>
+      <img *ngIf="localStorage.getItem('language') === 'el'" src="assets/images/flags/el-round.png" alt="Greek Flag" class="language-flag"/>
+    </button>
+  </span>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="header">
+    <mat-tab-group class="tabs"
+                   [(selectedIndex)]="activeTabIndex"
+                   (selectedIndexChange)="onTabChange($event)">
       <mat-tab label="Home"></mat-tab>
       <mat-tab label="About"></mat-tab>
       <mat-tab label="Contact"></mat-tab>
     </mat-tab-group>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-menu #languageMenu="matMenu">
+  <button mat-menu-item *ngIf="currentLanguage !== 'en'" (click)="changeLanguage('en')">
+    <img src="assets/images/flags/en-min.png" alt="English Flag" class="menu-language-flag"/>
+    <span>{{ 'english' | translate }}</span>
+  </button>
+  <button mat-menu-item *ngIf="currentLanguage !== 'el'" (click)="changeLanguage('el')">
+    <img src="assets/images/flags/el-min.png" alt="Greek Flag" class="menu-language-flag"/>
+    <span>{{ 'greek' | translate }}</span>
+  </button>
+</mat-menu>

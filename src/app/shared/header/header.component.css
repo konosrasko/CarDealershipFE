@@ -1,0 +1,39 @@
+.header {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 1%;
+  max-width: 10%;
+  max-height: 10%;
+}
+.logo img {
+  width: auto;
+  height: 40px;
+  max-width: 100%;
+  max-height: 40px;
+}
+.right-button {
+  position: absolute;
+  right: 1%;
+}
+
+.tabs {
+  flex-grow: 1;
+}
+.topBar-language {
+  margin-left: auto;
+}
+
+.mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+

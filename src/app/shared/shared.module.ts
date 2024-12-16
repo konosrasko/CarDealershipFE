@@ -8,6 +8,9 @@ import {RouterLink} from '@angular/router';
 import {MatCard, MatCardTitle} from '@angular/material/card';
 import {MatDialogTitle} from '@angular/material/dialog';
 import {MatTab, MatTabGroup} from '@angular/material/tabs';
+import {TranslatePipe} from "@ngx-translate/core";
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {MatTooltip} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -21,6 +24,11 @@ import {MatTab, MatTabGroup} from '@angular/material/tabs';
     MatDialogTitle,
     MatTabGroup,
     MatTab,
+    TranslatePipe,
+    MatMenu,
+    MatTooltip,
+    MatMenuTrigger,
+    MatMenuItem,
   ],
   providers: [],
   exports: [
