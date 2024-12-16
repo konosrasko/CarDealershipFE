@@ -6,5 +6,10 @@
   "changeLanguage": "Change language",
   "home": "Home",
   "about": "About",
-  "contact": "Contact"
+  "contact": "Contact",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "contactUs": "Contact Us",
+  "send": "send"
 }

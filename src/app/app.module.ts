@@ -8,6 +8,13 @@ import { HomeComponent } from './home/home.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
+import {MatCard, MatCardModule} from '@angular/material/card';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInput, MatInputModule} from '@angular/material/input';
+import {MatButton, MatButtonModule} from '@angular/material/button';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -15,7 +22,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +38,15 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    MatFormField,
+    MatCard,
+    ReactiveFormsModule,
+    MatInput,
+    MatButton,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     provideAnimationsAsync()
