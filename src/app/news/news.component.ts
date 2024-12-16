@@ -27,4 +27,9 @@ export class NewsComponent {
     });
   }
 
+  clearFilters() {
+    this.selectedCategory = 'All';
+    this.searchText = '';
+  }
+
 }

@@ -18,6 +18,7 @@ import {MatButton, MatButtonModule} from '@angular/material/button';
 import { NewsComponent } from './news/news.component';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {MatToolbar} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSelect,
     MatOption,
     FormsModule,
-    MatToolbar
+    MatToolbar,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

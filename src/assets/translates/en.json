@@ -12,5 +12,9 @@
   "message": "Message",
   "contactUs": "Contact Us",
   "send": "send",
-  "news": "News and Announcements"
+  "news": "News and Announcements",
+  "category": "Category",
+  "search": "Search",
+  "readMore": "Read more",
+  "clearFilters": "Clear filters"
 }
