@@ -2,7 +2,7 @@ html, body { height: 100%; }
 body { margin: 0;}
 
 :root {
-  --primary-color: rgba(148, 147, 147, 0.47);
+  --primary-color: rgba(0, 45, 66, 0.74);
   --secondary-color: rgb(40, 109, 125);
   --dark-template-color: #2A2A2AFF;
   --calendar-color: #004BABFF;
