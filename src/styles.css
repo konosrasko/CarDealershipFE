@@ -3,6 +3,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
   --primary-color: rgba(148, 147, 147, 0.47);
+  --calendar-color: #004BABFF;
+  --calendar-text-color: #FFFFFFFF;
+  --event-description-color: #737373FF;
+  --event-time-color: #444444FF;
 }
 
 html, body {

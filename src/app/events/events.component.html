@@ -1,0 +1,21 @@
+<div class="events-container">
+  <mat-card *ngFor="let event of events" class="event-card">
+    <div class="date-container">
+      <div class="date-box">
+        <div class="day">{{ event.day }}</div>
+        <div class="month">{{ event.month }}</div>
+        <div class="year">{{ event.year }}</div>
+      </div>
+    </div>
+    <div class="content-container">
+      <a href="#" (click)="navigateToEvent(event.url, $event)" class="day-link">
+        {{ event.title }}
+      </a>
+      <p class="event-description">{{ event.description }}</p>
+      <div class="event-time">
+        <mat-icon>schedule</mat-icon>
+        {{ event.time }}
+      </div>
+    </div>
+  </mat-card>
+</div>

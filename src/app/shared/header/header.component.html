@@ -25,11 +25,9 @@
         {{ 'news' | translate }}
       </span>
       <mat-menu #newsMenu="matMenu" class="custom-menu">
-        <button mat-menu-item routerLink="/news/latest">{{ 'Latest News' | translate }}</button>
-        <button mat-menu-item routerLink="/news/archive">{{ 'News Archive' | translate }}</button>
+        <button mat-menu-item routerLink="/news">{{ 'News' | translate }}</button>
+        <button mat-menu-item routerLink="/events">{{ 'Events' | translate }}</button>
       </mat-menu>
-
-      <!-- About Tab -->
 
       <span
         class="tab-item"
@@ -41,8 +39,8 @@
         {{ 'about' | translate }}
       </span>
       <mat-menu #aboutMenu="matMenu">
-        <button mat-menu-item routerLink="/about">{{ 'Latest News' | translate }}</button>
-        <button mat-menu-item routerLink="/about">{{ 'News Archive' | translate }}</button>
+        <button mat-menu-item routerLink="/about">{{ 'Info' | translate }}</button>
+<!--        <button mat-menu-item routerLink="/about">{{ 'News Archive' | translate }}</button>-->
       </mat-menu>
 
       <!-- Contact Tab -->
@@ -56,8 +54,8 @@
         {{ 'contact' | translate }}
       </span>
       <mat-menu #contactMenu="matMenu">
-          <button  mat-menu-item routerLink="/contact">{{ 'Latest News' | translate }}</button>
-          <button mat-menu-item routerLink="/contact">{{ 'News Archive' | translate }}</button>
+          <button  mat-menu-item routerLink="/contact">{{ 'ContactForm' | translate }}</button>
+<!--          <button mat-menu-item routerLink="/contact">{{ 'News Archive' | translate }}</button>-->
       </mat-menu>
     </div>
   </mat-toolbar-row>

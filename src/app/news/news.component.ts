@@ -35,7 +35,7 @@ export class NewsComponent {
 
   clearFilters() {
     this.selectedCategory = 'All';
-    this.selectedAreaOfInterest = 'All';  // Reset area of interest filter
+    this.selectedAreaOfInterest = 'All';
     this.searchText = '';
   }
 

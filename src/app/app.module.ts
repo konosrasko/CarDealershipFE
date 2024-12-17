@@ -20,6 +20,7 @@ import {MatOption, MatSelect} from '@angular/material/select';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { ScrollUpButtonComponent } from './shared/scroll-up-button/scroll-up-button.component';
+import { EventsComponent } from './events/events.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -30,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    NewsComponent
+    NewsComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
