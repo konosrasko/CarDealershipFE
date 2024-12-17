@@ -27,6 +27,4 @@ export class ScrollUpButtonComponent {
   onWindowScroll() {
     this.showButton = window.scrollY > 100;
   }
-
-
 }
