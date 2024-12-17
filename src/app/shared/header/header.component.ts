@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -8,33 +7,11 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
-  activeTabIndex = 0;
-  routeToTabMapping: { [key: string]: number } = {
-    '/home': 0,
-    '/news': 1,
-    '/about': 2,
-    '/contact': 3
-  };
+export class HeaderComponent{
   currentLanguage:any = '';
 
-  constructor(private router: Router,
-              public translate: TranslateService
-  ){
-    this.router.events.subscribe(() => {
-      const activeRoute = this.router.url;
-      this.activeTabIndex = this.routeToTabMapping[activeRoute] || 0;
-    });
+  constructor(public translate: TranslateService){
     this.currentLanguage = this.translate.currentLang;
-  }
-
-  onTabChange(event: any) {
-    const tabToRouteMapping = Object.keys(this.routeToTabMapping).find(
-      (key) => this.routeToTabMapping[key] === event
-    );
-    if (tabToRouteMapping) {
-      this.router.navigate([tabToRouteMapping]);
-    }
   }
 
   changeLanguage(newLanguage: any) {

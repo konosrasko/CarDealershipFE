@@ -9,31 +9,57 @@
 .logo {
   position: absolute;
   left: 1%;
-  max-width: 10%;
+  top: 20%;
+  max-width: 20%;
   max-height: 10%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+
+
 .logo img {
   width: auto;
-  height: 40px;
+  height: 47px;
   max-width: 100%;
-  max-height: 40px;
+  max-height: 50px;
 }
+
 .right-button {
   position: absolute;
   right: 1%;
 }
 
-.tabs {
-  flex-grow: 1;
-}
 .topBar-language {
   margin-left: auto;
 }
 
 .mat-toolbar-row {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab-item {
+  cursor: pointer;
+  padding: 8px 26px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.tab-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+
 
 

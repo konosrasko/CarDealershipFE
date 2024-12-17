@@ -13,14 +13,53 @@
     </div>
   </mat-toolbar-row>
   <mat-toolbar-row class="header">
-    <mat-tab-group class="tabs"
-                   [(selectedIndex)]="activeTabIndex"
-                   (selectedIndexChange)="onTabChange($event)">
-      <mat-tab label="{{'home' | translate}}"></mat-tab>
-      <mat-tab label="{{'news' | translate}}"></mat-tab>
-      <mat-tab label="{{'about' | translate}}"></mat-tab>
-      <mat-tab label="{{'contact' | translate}}"></mat-tab>
-    </mat-tab-group>
+    <div class="tabs">
+      <!-- News Tab -->
+      <span
+        class="tab-item"
+        (click)="newsMenuTrigger.openMenu()"
+        (close)="newsMenuTrigger.closeMenu()"
+        [matMenuTriggerFor]="newsMenu"
+        #newsMenuTrigger="matMenuTrigger"
+      >
+        {{ 'news' | translate }}
+      </span>
+      <mat-menu #newsMenu="matMenu" class="custom-menu">
+        <button mat-menu-item routerLink="/news/latest">{{ 'Latest News' | translate }}</button>
+        <button mat-menu-item routerLink="/news/archive">{{ 'News Archive' | translate }}</button>
+      </mat-menu>
+
+      <!-- About Tab -->
+
+      <span
+        class="tab-item"
+        (click)="aboutMenuTrigger.openMenu()"
+        (close)="aboutMenuTrigger.closeMenu()"
+        [matMenuTriggerFor]="aboutMenu"
+        #aboutMenuTrigger="matMenuTrigger"
+      >
+        {{ 'about' | translate }}
+      </span>
+      <mat-menu #aboutMenu="matMenu">
+        <button mat-menu-item routerLink="/about">{{ 'Latest News' | translate }}</button>
+        <button mat-menu-item routerLink="/about">{{ 'News Archive' | translate }}</button>
+      </mat-menu>
+
+      <!-- Contact Tab -->
+      <span
+        class="tab-item"
+        (click)="contactMenuTrigger.openMenu()"
+        (close)="contactMenuTrigger.closeMenu()"
+        [matMenuTriggerFor]="contactMenu"
+        #contactMenuTrigger="matMenuTrigger"
+      >
+        {{ 'contact' | translate }}
+      </span>
+      <mat-menu #contactMenu="matMenu">
+          <button  mat-menu-item routerLink="/contact">{{ 'Latest News' | translate }}</button>
+          <button mat-menu-item routerLink="/contact">{{ 'News Archive' | translate }}</button>
+      </mat-menu>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 

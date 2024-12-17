@@ -11,6 +11,8 @@ import {MatTab, MatTabGroup} from '@angular/material/tabs';
 import {TranslatePipe} from "@ngx-translate/core";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MatTooltip} from '@angular/material/tooltip';
+import {ScrollUpButtonComponent} from './scroll-up-button/scroll-up-button.component';
+
 
 
 @NgModule({
@@ -29,11 +31,13 @@ import {MatTooltip} from '@angular/material/tooltip';
     MatTooltip,
     MatMenuTrigger,
     MatMenuItem,
+    ScrollUpButtonComponent
   ],
   providers: [],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollUpButtonComponent
   ],
   declarations: [
     HeaderComponent,
