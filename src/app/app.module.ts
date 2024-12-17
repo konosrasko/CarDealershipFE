@@ -19,6 +19,7 @@ import { NewsComponent } from './news/news.component';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { ScrollUpButtonComponent } from './scroll-up-button/scroll-up-button.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -56,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatOption,
     FormsModule,
     MatToolbar,
-    MatIconModule
+    MatIconModule,
+    ScrollUpButtonComponent
   ],
   providers: [
     provideAnimationsAsync()
