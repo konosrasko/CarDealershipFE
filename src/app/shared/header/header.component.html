@@ -12,7 +12,7 @@
   </span>
     </div>
   </mat-toolbar-row>
-  <mat-toolbar-row class="header">
+  <mat-toolbar-row class="header2">
     <div class="tabs">
       <!-- News Tab -->
       <span
@@ -29,6 +29,8 @@
         <button mat-menu-item routerLink="/events">{{ 'Events' | translate }}</button>
       </mat-menu>
 
+      <!-- About Tab -->
+
       <span
         class="tab-item"
         (click)="aboutMenuTrigger.openMenu()"
@@ -40,7 +42,6 @@
       </span>
       <mat-menu #aboutMenu="matMenu">
         <button mat-menu-item routerLink="/about">{{ 'Info' | translate }}</button>
-<!--        <button mat-menu-item routerLink="/about">{{ 'News Archive' | translate }}</button>-->
       </mat-menu>
 
       <!-- Contact Tab -->
@@ -55,7 +56,6 @@
       </span>
       <mat-menu #contactMenu="matMenu">
           <button  mat-menu-item routerLink="/contact">{{ 'ContactForm' | translate }}</button>
-<!--          <button mat-menu-item routerLink="/contact">{{ 'News Archive' | translate }}</button>-->
       </mat-menu>
     </div>
   </mat-toolbar-row>
