@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--primary-color);
+  background-color: var(--template-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,8 +15,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-
 
 .logo img {
   width: auto;
@@ -41,25 +39,38 @@
   align-items: center;
 }
 
+.header2 {
+  background-color: var(--dark-template-color); /* Dark background for the toolbar */
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .tabs {
-  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 8%;
+  margin: 0 auto;
 }
 
 .tab-item {
   cursor: pointer;
-  padding: 8px 26px;
-  transition: background-color 0.3s ease;
-  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f2f2f2;
+  transition: color 0.3s ease-in-out;
 }
 
 .tab-item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  color: var(--secondary-color);
 }
 
-
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 

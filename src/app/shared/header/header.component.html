@@ -12,7 +12,7 @@
   </span>
     </div>
   </mat-toolbar-row>
-  <mat-toolbar-row class="header">
+  <mat-toolbar-row class="header2">
     <div class="tabs">
       <!-- News Tab -->
       <span
@@ -24,7 +24,7 @@
       >
         {{ 'news' | translate }}
       </span>
-      <mat-menu #newsMenu="matMenu" class="custom-menu">
+      <mat-menu #newsMenu="matMenu">
         <button mat-menu-item routerLink="/news/latest">{{ 'Latest News' | translate }}</button>
         <button mat-menu-item routerLink="/news/archive">{{ 'News Archive' | translate }}</button>
       </mat-menu>
