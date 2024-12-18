@@ -5,23 +5,23 @@
 }
 
 .go-to-top-button {
-  width: 3rem !important;
-  height: 3rem !important;
-  border-radius: 0.6rem !important;
-  border: 1px solid transparent !important;
-  font-size: 1rem !important;
-  text-align: center !important;
-  align-items: center !important;
-  justify-content: center !important;
-  filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25)) !important;
-  background-color: #2058bf!important;
-  background-clip: padding-box, border-box !important;
-  background-origin: padding-box, border-box !important;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.6rem;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25));
+  background-color: var(--primary-color);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   box-shadow:
     inset 0 1px rgb(255 255 255 / .25),
     inset 0 -1px rgb(0 0 0 / .1),
-    0 2px 4px rgb(0 0 0 / .25) !important;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+    0 2px 4px rgb(0 0 0 / .25);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .go-to-top-button:active {
@@ -29,5 +29,6 @@
 }
 
 .go-to-top-button:hover {
-  box-shadow: 0 0 1rem #70bedb !important;
+  box-shadow: 0 0 1rem var(--primary-color);
+  background-color: var(--secondary-color);
 }
