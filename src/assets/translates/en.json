@@ -15,6 +15,18 @@
   "global.news": "News and Announcements",
   "global.info": "Informations",
   "global.events": "Events",
+  "global.partners": "Partners",
+  "global.company": "Company",
+  "global.pageLinks": "Page Links",
+  "global.locationFooter": "Campus UOWM, Koila, Kozani",
+  "global.workingTime": "Mon-Fri 9:00 - 17:00",
+  "global.companyDetails1": "SYNERGiNN EDIH Digital",
+  "global.companyDetails2": "Innovation Hub of Western",
+  "global.companyDetails3": "Macedonia SYNergy – enERGy –",
+  "global.companyDetails4": "iNNovation EDIH - European",
+  "global.companyDetails5": "Digital Innovation Hubs Network",
+  "global.companyDetails6": "",
+
 
   "contactForm.name": "Name",
   "contactForm.email": "Email",

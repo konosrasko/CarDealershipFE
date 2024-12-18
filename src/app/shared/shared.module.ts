@@ -14,6 +14,7 @@ import {MatTooltip} from '@angular/material/tooltip';
 import {ScrollUpButtonComponent} from './scroll-up-button/scroll-up-button.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatIcon} from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatMenuItem,
     ScrollUpButtonComponent,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIcon
   ],
   providers: [],
   exports: [
