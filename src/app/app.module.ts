@@ -21,6 +21,7 @@ import {MatToolbar} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { ScrollUpButtonComponent } from './shared/scroll-up-button/scroll-up-button.component';
 import { EventsComponent } from './events/events.component';
+import {MatTab, MatTabGroup} from '@angular/material/tabs';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -59,7 +60,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatOption,
     FormsModule,
     MatToolbar,
-    MatIconModule
+    MatIconModule,
+    MatTab,
+    MatTabGroup
   ],
   providers: [
     provideAnimationsAsync()
