@@ -13,6 +13,8 @@ body {
   --event-description-color: #737373FF;
   --event-time-color: #444444FF;
   --template-color: rgba(183, 183, 183, 0.97);
+  --disabled-cta-color: rgba(183, 183, 183, 0.43);
+  --disabled-text-color: rgba(0, 0, 0, 0.4);
 }
 
 
@@ -57,5 +59,12 @@ body {
 .cta-button:focus {
   outline: none !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.cta-button:disabled {
+  background-color: var(--disabled-cta-color) !important; /* Change this to the color you want */
+  color: var(--disabled-text-color) !important; /* Optional: Adjust text color */
+  cursor: not-allowed !important; /* Change cursor to show it's disabled */
+  transform: none !important; /* Remove the hover effect on disabled state */
 }
 /*end of generic cta-button*/
