@@ -9,15 +9,9 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent {
 
-
-  constructor(
-    private router: Router,
-  ){
-
-  }
+  constructor(){}
 
   openLearnMore(){
     open('https://synerginn.eu/el/');
   }
-
 }
