@@ -31,8 +31,7 @@ html, body {
   bottom: 8% !important;
 }
 
- .mat-mdc-menu-panel{
+.mat-mdc-menu-panel{
   min-width: 15rem !important;
-   background-color: var(--template-color) !important;
+  background-color: var(--template-color) !important;
 }
-
