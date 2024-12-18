@@ -5,6 +5,12 @@
   padding: 16px;
 }
 
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
 .event-card {
   display: flex;
   gap: 16px;

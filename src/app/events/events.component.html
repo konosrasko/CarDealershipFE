@@ -1,5 +1,39 @@
 <div class="events-container">
-  <mat-card *ngFor="let event of events" class="event-card">
+  <mat-toolbar>
+    <span>{{ 'events' | translate }}</span>
+  </mat-toolbar>
+
+  <div class="filters">
+    <mat-form-field>
+      <mat-label>{{ 'category' | translate }}</mat-label>
+      <mat-select [(value)]="selectedCategory">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ 'areaOfInterest' | translate }}</mat-label>
+      <mat-select [(value)]="selectedAreaOfInterest">
+        <mat-option *ngFor="let area of areasOfInterest" [value]="area">
+          {{ area }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ 'search' | translate }}</mat-label>
+      <input matInput [(ngModel)]="searchText">
+    </mat-form-field>
+
+    <button mat-button (click)="clearFilters()">
+      <mat-icon>filter_list</mat-icon>
+      {{ 'clearFilters' | translate }}
+    </button>
+  </div>
+
+  <mat-card *ngFor="let event of filteredEvents" class="event-card">
     <div class="date-container">
       <div class="date-box">
         <div class="day">{{ event.day }}</div>
