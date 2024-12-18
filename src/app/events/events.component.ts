@@ -19,7 +19,7 @@ export class EventsComponent implements OnInit{
          next: (value: Event[]) => {
            this.events = this.events.concat(value);
          },
-         error: (err: any) => {
+         error: () => {
            this.toaster.showError('Error! Something went wrong.');
          }
        })
