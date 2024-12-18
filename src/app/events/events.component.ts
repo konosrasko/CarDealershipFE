@@ -17,7 +17,9 @@ export class EventsComponent implements OnInit{
   searchText: string = '';
   events: Event[] = [];
 
-  constructor(private eventService: EventService, private toaster: ToasterService,) {}
+  constructor(private eventService: EventService,
+              private toaster: ToasterService
+  ) {}
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe({

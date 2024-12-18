@@ -7,15 +7,11 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class EventService {
-
   private eventsUrl = '/assets/dataSource/events.json';
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
-    getEvents(): Observable<Event[]> {
-      return this.http.get<Event[]>(this.eventsUrl);
-
-    }
+  getEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.eventsUrl);
+  }
 }

@@ -1,8 +1,11 @@
 html, body { height: 100%; }
-body { margin: 0;}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
 :root {
-  --primary-color: rgba(0, 45, 66, 0.74);
+  --primary-color: rgb(0, 45, 66);
   --secondary-color: rgb(40, 109, 125);
   --dark-template-color: #2A2A2AFF;
   --calendar-color: #004BABFF;
@@ -10,12 +13,10 @@ body { margin: 0;}
   --event-description-color: #737373FF;
   --event-time-color: #444444FF;
   --template-color: rgba(183, 183, 183, 0.97);
+  --disabled-cta-color: rgba(183, 183, 183, 0.43);
+  --disabled-text-color: rgba(0, 0, 0, 0.4);
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
 
 .app-container {
   display: flex;
@@ -27,6 +28,7 @@ html, body {
   flex-grow: 1;
 }
 
+/*mat-menu change*/
 .asw-menu-btn {
   bottom: 8% !important;
 }
@@ -35,3 +37,34 @@ html, body {
   min-width: 15rem !important;
   background-color: var(--template-color) !important;
 }
+/*End of mat-menu change*/
+
+/*Generic cta-button*/
+.cta-button {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  font-size: 1.2em !important;
+  padding: 3% 6% !important;
+  border-radius: 50px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.cta-button:hover {
+  background-color: var(--secondary-color) !important;
+  transform: translateY(-2px) !important;
+}
+
+.cta-button:focus {
+  outline: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.cta-button:disabled {
+  background-color: var(--disabled-cta-color) !important; /* Change this to the color you want */
+  color: var(--disabled-text-color) !important; /* Optional: Adjust text color */
+  cursor: not-allowed !important; /* Change cursor to show it's disabled */
+  transform: none !important; /* Remove the hover effect on disabled state */
+}
+/*end of generic cta-button*/

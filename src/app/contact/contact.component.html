@@ -17,6 +17,6 @@
       <textarea matInput formControlName="message" rows="5"></textarea>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="communicationForm.invalid">{{ 'global.send' | translate }}</button>
+    <button mat-raised-button color="primary" style="width: 100%;" class="cta-button" type="submit" [disabled]="communicationForm.invalid">{{ 'global.send' | translate }}</button>
   </form>
 </mat-card>
