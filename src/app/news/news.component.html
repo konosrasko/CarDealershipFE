@@ -43,7 +43,9 @@
         <p>{{ news.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="readMoreAboutNews(news.url)">{{ 'readMore' | translate}}</button>
+        <a href="{{ news.url }}" target="_blank" class="day-link">
+          {{ 'readMore' | translate}}
+        </a>
       </mat-card-actions>
     </mat-card>
   </div>
