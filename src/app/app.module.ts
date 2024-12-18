@@ -19,7 +19,6 @@ import { NewsComponent } from './news/news.component';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { ScrollUpButtonComponent } from './shared/scroll-up-button/scroll-up-button.component';
 import { EventsComponent } from './events/events.component';
 import {MatTab, MatTabGroup} from '@angular/material/tabs';
 
