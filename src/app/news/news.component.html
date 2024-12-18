@@ -1,11 +1,11 @@
 <div class="news-container">
   <mat-toolbar>
-    <span>{{ 'news' | translate}}</span>
+    <span>{{ 'contents.news' | translate}}</span>
   </mat-toolbar>
 
   <div class="filters">
     <mat-form-field>
-      <mat-label>{{ 'category' | translate}}</mat-label>
+      <mat-label>{{ 'filter.category' | translate}}</mat-label>
       <mat-select [(value)]="selectedCategory">
         <mat-option *ngFor="let category of categories" [value]="category">
           {{ category }}
@@ -14,7 +14,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>{{ 'areaOfInterest' | translate }}</mat-label>
+      <mat-label>{{ 'filter.areaOfInterest' | translate }}</mat-label>
       <mat-select [(value)]="selectedAreaOfInterest">
         <mat-option *ngFor="let area of areasOfInterest" [value]="area">
           {{ area }}
@@ -23,7 +23,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>{{ 'search' | translate }}</mat-label>
+      <mat-label>{{ 'global.search' | translate }}</mat-label>
       <input matInput [(ngModel)]="searchText">
     </mat-form-field>
 
@@ -44,7 +44,7 @@
       </mat-card-content>
       <mat-card-actions>
         <a href="{{ news.url }}" target="_blank" class="day-link">
-          {{ 'readMore' | translate}}
+          {{ 'global.readMore' | translate}}
         </a>
       </mat-card-actions>
     </mat-card>
