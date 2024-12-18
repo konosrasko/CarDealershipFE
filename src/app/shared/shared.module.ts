@@ -12,6 +12,8 @@ import {TranslatePipe} from "@ngx-translate/core";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MatTooltip} from '@angular/material/tooltip';
 import {ScrollUpButtonComponent} from './scroll-up-button/scroll-up-button.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -31,7 +33,9 @@ import {ScrollUpButtonComponent} from './scroll-up-button/scroll-up-button.compo
     MatTooltip,
     MatMenuTrigger,
     MatMenuItem,
-    ScrollUpButtonComponent
+    ScrollUpButtonComponent,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   exports: [
