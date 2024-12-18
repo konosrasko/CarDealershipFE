@@ -1,22 +1,22 @@
 <mat-card class="form-card">
   <form [formGroup]="communicationForm" (ngSubmit)="onSubmit()">
-    <h2>{{ 'contactUs' | translate }}</h2>
+    <h2>{{ 'contactForm.contactUs' | translate }}</h2>
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>{{ 'name' | translate }}</mat-label>
-      <input matInput formControlName="name" placeholder="Enter your name">
+      <mat-label>{{ 'contactForm.name' | translate }}</mat-label>
+      <input matInput formControlName="name">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>{{ 'email' | translate }}</mat-label>
-      <input matInput formControlName="email" placeholder="Enter your email">
+      <mat-label>{{ 'contactForm.email' | translate }}</mat-label>
+      <input matInput formControlName="email">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>{{ 'message' | translate }}</mat-label>
-      <textarea matInput formControlName="message" rows="5" placeholder="Enter your message"></textarea>
+      <mat-label>{{ 'contactForm.message' | translate }}</mat-label>
+      <textarea matInput formControlName="message" rows="5"></textarea>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="communicationForm.invalid">{{ 'send' | translate }}</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="communicationForm.invalid">{{ 'global.send' | translate }}</button>
   </form>
 </mat-card>

@@ -15,8 +15,6 @@ import {ScrollUpButtonComponent} from './scroll-up-button/scroll-up-button.compo
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-
-
 @NgModule({
   imports: [
     CommonModule,

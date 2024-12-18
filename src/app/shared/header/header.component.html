@@ -5,7 +5,7 @@
     </div>
     <div class="right-button">
        <span class="topBar-language">
-    <button mat-icon-button [matMenuTriggerFor]="languageMenu" matTooltip="{{ 'changeLanguage' | translate }}">
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" matTooltip="{{ 'global.changeLanguage' | translate }}">
       <img *ngIf="localStorage.getItem('language') === 'en'" src="assets/images/flags/en-round.png" alt="English Flag" class="language-flag"/>
       <img *ngIf="localStorage.getItem('language') === 'el'" src="assets/images/flags/el-round.png" alt="Greek Flag" class="language-flag"/>
     </button>
@@ -22,11 +22,11 @@
         [matMenuTriggerFor]="newsMenu"
         #newsMenuTrigger="matMenuTrigger"
       >
-        {{ 'news' | translate }}
+        {{ 'global.news' | translate }}
       </span>
       <mat-menu #newsMenu="matMenu" class="custom-menu">
-        <button mat-menu-item routerLink="/news">{{ 'News' | translate }}</button>
-        <button mat-menu-item routerLink="/events">{{ 'Events' | translate }}</button>
+        <button mat-menu-item routerLink="/news">{{ 'contents.news' | translate }}</button>
+        <button mat-menu-item routerLink="/events">{{ 'global.events' | translate }}</button>
       </mat-menu>
 
       <!-- About Tab -->
@@ -38,10 +38,10 @@
         [matMenuTriggerFor]="aboutMenu"
         #aboutMenuTrigger="matMenuTrigger"
       >
-        {{ 'about' | translate }}
+        {{ 'global.about' | translate }}
       </span>
       <mat-menu #aboutMenu="matMenu">
-        <button mat-menu-item routerLink="/about">{{ 'Info' | translate }}</button>
+        <button mat-menu-item routerLink="/about">{{ 'global.info' | translate }}</button>
       </mat-menu>
 
       <!-- Contact Tab -->
@@ -52,10 +52,10 @@
         [matMenuTriggerFor]="contactMenu"
         #contactMenuTrigger="matMenuTrigger"
       >
-        {{ 'contact' | translate }}
+        {{ 'global.contact' | translate }}
       </span>
       <mat-menu #contactMenu="matMenu">
-          <button  mat-menu-item routerLink="/contact">{{ 'ContactForm' | translate }}</button>
+          <button  mat-menu-item routerLink="/contact">{{ 'contents.contactForm' | translate }}</button>
       </mat-menu>
     </div>
   </mat-toolbar-row>
@@ -64,10 +64,10 @@
 <mat-menu #languageMenu="matMenu">
   <button mat-menu-item *ngIf="currentLanguage !== 'en'" (click)="changeLanguage('en')">
     <img src="assets/images/flags/en-min.png" alt="English Flag" class="menu-language-flag"/>
-    <span>{{ 'english' | translate }}</span>
+    <span>{{ 'global.english' | translate }}</span>
   </button>
   <button mat-menu-item *ngIf="currentLanguage !== 'el'" (click)="changeLanguage('el')">
     <img src="assets/images/flags/el-min.png" alt="Greek Flag" class="menu-language-flag"/>
-    <span>{{ 'greek' | translate }}</span>
+    <span>{{ 'global.greek' | translate }}</span>
   </button>
 </mat-menu>

@@ -16,7 +16,6 @@ export class NewsComponent implements OnInit {
   selectedAreaOfInterest: string = 'All';
   searchText: string = '';
   news: New[] = [];
-  filteredNews: New[] = [];
 
   constructor(
     private newsService: NewsService,
@@ -27,18 +26,17 @@ export class NewsComponent implements OnInit {
     this.newsService.getNews().subscribe({
       next: (data: New[]) => {
         this.news = this.news.concat(data);
-        this.applyFilters();
       },
       error: (err) => console.error('Error loading news:', err),
     });
   }
 
 
-  applyFilters() {
-    this.filteredNews = this.news.filter((newsItem) => {
-      const matchesCategory = this.selectedCategory === 'All' || newsItem.category === this.selectedCategory;
-      const matchesAreaOfInterest = this.selectedAreaOfInterest === 'All' || newsItem.areaOfInterest === this.selectedAreaOfInterest;
-      const matchesSearch = newsItem.title?.toLowerCase().includes(this.searchText.toLowerCase());
+  get filteredNews() {
+    return this.news.filter(news => {
+      const matchesCategory = this.selectedCategory === 'All' || news.category === this.selectedCategory;
+      const matchesAreaOfInterest = this.selectedAreaOfInterest === 'All' || news.areaOfInterest === this.selectedAreaOfInterest;
+      const matchesSearch = news.title?.toLowerCase().includes(this.searchText.toLowerCase());
 
       return matchesCategory && matchesAreaOfInterest && matchesSearch;
     });
@@ -48,8 +46,5 @@ export class NewsComponent implements OnInit {
     this.selectedCategory = 'All';
     this.selectedAreaOfInterest = 'All';
     this.searchText = '';
-    this.applyFilters();
   }
-
-  protected readonly event = event;
 }
