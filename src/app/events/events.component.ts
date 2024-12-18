@@ -13,7 +13,6 @@ export class EventsComponent {
   selectedAreaOfInterest: string = 'All';
   searchText: string = '';
 
-  // TODO: Include and status property
   events = [
     {
       day: '3',
