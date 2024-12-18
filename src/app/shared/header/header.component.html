@@ -14,6 +14,7 @@
   </mat-toolbar-row>
   <mat-toolbar-row class="header2">
     <div class="tabs">
+
       <!-- News Tab -->
       <span
         class="tab-item"
@@ -24,13 +25,12 @@
       >
         {{ 'news' | translate }}
       </span>
-      <mat-menu #newsMenu="matMenu" class="custom-menu">
+      <mat-menu #newsMenu="matMenu">
         <button mat-menu-item routerLink="/news">{{ 'News' | translate }}</button>
         <button mat-menu-item routerLink="/events">{{ 'Events' | translate }}</button>
       </mat-menu>
 
       <!-- About Tab -->
-
       <span
         class="tab-item"
         (click)="aboutMenuTrigger.openMenu()"
@@ -63,11 +63,11 @@
 
 <mat-menu #languageMenu="matMenu">
   <button mat-menu-item *ngIf="currentLanguage !== 'en'" (click)="changeLanguage('en')">
-    <img src="assets/images/flags/en-min.png" alt="English Flag" class="menu-language-flag"/>
-    <span>{{ 'english' | translate }}</span>
+    <img src="assets/images/flags/en-min.png" alt="English Flag" style="padding-right: 10px !important;"/>
+    <span style="color: var(--dark-template-color) !important;">{{ 'english' | translate }}</span>
   </button>
   <button mat-menu-item *ngIf="currentLanguage !== 'el'" (click)="changeLanguage('el')">
-    <img src="assets/images/flags/el-min.png" alt="Greek Flag" class="menu-language-flag"/>
-    <span>{{ 'greek' | translate }}</span>
+    <img src="assets/images/flags/el-min.png" alt="Greek Flag" style="padding-right: 10px !important;"/>
+    <span style="color: var(--dark-template-color) !important;">{{ 'greek' | translate }}</span>
   </button>
 </mat-menu>

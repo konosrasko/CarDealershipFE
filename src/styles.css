@@ -7,7 +7,7 @@ body {
 :root {
   --primary-color: rgb(0, 45, 66);
   --secondary-color: rgb(40, 109, 125);
-  --dark-template-color: #2A2A2AFF;
+  --dark-template-color: rgba(42, 42, 42, 0.96);
   --calendar-color: #004BABFF;
   --calendar-text-color: #FFFFFFFF;
   --event-description-color: #737373FF;
@@ -35,7 +35,22 @@ body {
 
 .mat-mdc-menu-panel{
   min-width: 15rem !important;
+  min-height: 100% !important;
   background-color: var(--template-color) !important;
+}
+
+.cdk-overlay-pane{
+  margin-top: 10px !important;
+}
+
+.mat-mdc-menu-item-text{
+  font-size: 17px !important;
+  color: var(--secondary-color);
+  text-align: left;
+}
+
+.mat-mdc-menu-item-text:hover{
+  color: var(--primary-color);
 }
 /*End of mat-menu change*/
 
