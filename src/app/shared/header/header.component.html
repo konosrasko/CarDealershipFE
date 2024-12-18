@@ -6,8 +6,8 @@
     <div class="right-button">
        <span class="topBar-language">
     <button mat-icon-button [matMenuTriggerFor]="languageMenu" matTooltip="{{ 'changeLanguage' | translate }}">
-      <img *ngIf="localStorage.getItem('language') === 'en'" src="assets/images/flags/en-round.png" alt="English Flag" class="language-flag"/>
-      <img *ngIf="localStorage.getItem('language') === 'el'" src="assets/images/flags/el-round.png" alt="Greek Flag" class="language-flag"/>
+      <img *ngIf="localStorage.getItem('language') === 'en'" src="assets/images/flags/en-round.png" alt="English Flag"/>
+      <img *ngIf="localStorage.getItem('language') === 'el'" src="assets/images/flags/el-round.png" alt="Greek Flag"/>
     </button>
   </span>
     </div>
