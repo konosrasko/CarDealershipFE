@@ -7,7 +7,6 @@ import {
   QueryList,
   TemplateRef,
   AfterContentInit,
-  ViewEncapsulation
 } from '@angular/core';
 import {NgForOf, NgIf, NgTemplateOutlet} from '@angular/common';
 
