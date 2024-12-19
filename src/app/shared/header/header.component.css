@@ -46,7 +46,9 @@
 
 .tabs {
   display: flex;
-  gap: 10%;
+  gap: 15%;
+  padding-left: 2%;
+  position: relative;
 }
 
 .tab-item {
@@ -58,7 +60,7 @@
 }
 
 .tab-item:hover {
-  color: var(--secondary-color);
+  color: var(--active-color);
 }
 
 @keyframes fadeIn {
@@ -70,5 +72,23 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.title{
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  padding: 10px;
+  font-size: 23px;
+  font-weight: 500;
+  border: none;
+}
+
+.title:hover {
+  color: var(--active-color);
+  cursor: pointer;
+}
+
+.active{
+  border-bottom: 2px solid var(--active-color);
 }
 

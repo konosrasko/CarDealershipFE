@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="dropbtn">{{ buttonLabel }}</button>
+  <div class="dropdown-content">
+    <ng-container *ngIf="hasContent">
+      <ng-container *ngFor="let menuItem of menuItems">
+        <div class="menu-item">
+          <ng-container *ngTemplateOutlet="menuItem"></ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

@@ -15,48 +15,17 @@
   <mat-toolbar-row class="header2">
     <div class="tabs">
 
-      <!-- News Tab -->
-      <span
-        class="tab-item"
-        (click)="newsMenuTrigger.openMenu()"
-        (close)="newsMenuTrigger.closeMenu()"
-        [matMenuTriggerFor]="newsMenu"
-        #newsMenuTrigger="matMenuTrigger"
-      >
-        {{ 'global.news' | translate }}
-      </span>
-      <mat-menu #newsMenu="matMenu">
-        <button mat-menu-item routerLink="/news">{{ 'contents.news' | translate }}</button>
-        <button mat-menu-item routerLink="/events">{{ 'global.events' | translate }}</button>
-      </mat-menu>
-
-      <!-- About Tab -->
-      <span
-        class="tab-item"
-        (click)="aboutMenuTrigger.openMenu()"
-        (close)="aboutMenuTrigger.closeMenu()"
-        [matMenuTriggerFor]="aboutMenu"
-        #aboutMenuTrigger="matMenuTrigger"
-      >
-        {{ 'global.about' | translate }}
-      </span>
-      <mat-menu #aboutMenu="matMenu">
-        <button mat-menu-item routerLink="/about">{{ 'global.info' | translate }}</button>
-      </mat-menu>
+      <app-drop-down-menu buttonLabel="{{ 'global.news' | translate }}" routerLinkActive="active">
+        <ng-template #menuItem>
+          <p routerLink="/news">{{ 'contents.news' | translate }}</p>
+        </ng-template>
+        <ng-template #menuItem>
+          <p routerLink="/events">{{ 'global.events' | translate }}</p>
+        </ng-template>
+      </app-drop-down-menu>
 
       <!-- Contact Tab -->
-      <span
-        class="tab-item"
-        (click)="contactMenuTrigger.openMenu()"
-        (close)="contactMenuTrigger.closeMenu()"
-        [matMenuTriggerFor]="contactMenu"
-        #contactMenuTrigger="matMenuTrigger"
-      >
-        {{ 'global.contact' | translate }}
-      </span>
-      <mat-menu #contactMenu="matMenu">
-          <button  mat-menu-item routerLink="/contact">{{ 'contents.contactForm' | translate }}</button>
-      </mat-menu>
+      <button class="title" routerLink="/contact" routerLinkActive="active">{{ 'global.contact' | translate }}</button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

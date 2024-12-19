@@ -23,4 +23,5 @@ export class HeaderComponent{
   }
 
   protected readonly localStorage = localStorage;
+  protected readonly navigator = navigator;
 }
