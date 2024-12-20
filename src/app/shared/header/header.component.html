@@ -1,8 +1,15 @@
 <mat-toolbar>
   <mat-toolbar-row class="header">
     <div class="logo">
-      <img src="assets/images/logo-transparent.png" [routerLink]="['/home']" alt="Logo"/>
+      <img src="assets/images/logo-transparent.png" [routerLink]="['']" alt="Logo"/>
+      <button *ngIf="!isHidden" matTooltip="{{'global.openMenu' | translate }}" matTooltipPosition="right" (click)="showHideMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <button *ngIf="isHidden" matTooltip="{{'global.closeMenu' | translate }}" matTooltipPosition="right" (click)="showHideMenu()">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
+
     <div class="right-button">
        <span class="topBar-language">
     <button mat-icon-button [matMenuTriggerFor]="languageMenu" matTooltip="{{ 'global.changeLanguage' | translate }}">
@@ -12,9 +19,8 @@
   </span>
     </div>
   </mat-toolbar-row>
-  <mat-toolbar-row class="header2">
+  <mat-toolbar-row class="header2" *ngIf="isHidden">
     <div class="tabs">
-
       <app-drop-down-menu buttonLabel="{{ 'global.news' | translate }}" routerLinkActive="active">
         <ng-template #menuItem>
           <p routerLink="/news">{{ 'contents.news' | translate }}</p>
@@ -40,3 +46,14 @@
     <span style="color: var(--dark-template-color) !important;">{{ 'global.greek' | translate }}</span>
   </button>
 </mat-menu>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-container">
+  <xng-breadcrumb [autoGenerate]="false">
+    <ng-container *xngBreadcrumbItem="let breadcrumb; let last = last; let first = first;">
+      <b class="not-last-breadcrumb-item" *ngIf="first"> <i class="fa fa-home"></i></b>
+      <b  class="not-last-breadcrumb-item" *ngIf="!last && !first" [routerLink]="breadcrumb.url">{{ 'breadcrumb.'+breadcrumb | translate}}</b>
+      <b class="last-breadcrumb-item" *ngIf="last && !first">{{'breadcrumb.'+ breadcrumb | translate}}</b>
+    </ng-container>
+  </xng-breadcrumb>
+</div>

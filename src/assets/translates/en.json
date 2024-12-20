@@ -26,6 +26,8 @@
   "global.companyDetails4": "iNNovation EDIH - European",
   "global.companyDetails5": "Digital Innovation Hubs Network",
   "global.companyDetails6": "",
+  "global.closeMenu": "Close menu",
+  "global.openMenu": "Open menu",
 
 
   "contactForm.name": "Name",
@@ -36,5 +38,10 @@
 
   "filter.category": "Category",
   "filter.areaOfInterest": "Area of interest",
-  "contents.news": "News"
+  "contents.news": "News",
+
+  "breadcrumb.news": "News",
+  "breadcrumb.events": "Events",
+  "breadcrumb.contact": "Contact",
+  "breadcrumb.home": "Home"
 }

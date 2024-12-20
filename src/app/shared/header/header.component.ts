@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent{
   currentLanguage:any = '';
+  isHidden = true;
 
   constructor(public translate: TranslateService){
     this.currentLanguage = this.translate.currentLang;
@@ -21,7 +22,9 @@ export class HeaderComponent{
       });
     }
   }
-
   protected readonly localStorage = localStorage;
-  protected readonly navigator = navigator;
+
+  showHideMenu() {
+     this.isHidden = !this.isHidden;
+  }
 }

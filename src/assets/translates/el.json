@@ -26,6 +26,9 @@
   "global.companyDetails4": "Μακεδονίας EDIH - Δίκτυο",
   "global.companyDetails5": "Ευρωπαϊκών Κόμβων Ψηφιακής",
   "global.companyDetails6": "Καινοτομίας",
+  "global.openMenu": "Άνοιξε μενού",
+  "global.closeMenu": "Κλείσε μενού",
+
   "contactForm.name": "Όνομα",
   "contactForm.email": "Ηλ. Ταχυδρομείο",
   "contactForm.message": "Μήνυμα",
@@ -34,5 +37,11 @@
 
   "filter.category": "Κατηγορία",
   "filter.areaOfInterest": "Τομέας ενδιαφέροντος",
-  "contents.news": "Νέα"
+  "contents.news": "Νέα",
+
+  "breadcrumb.news": "Νέα",
+  "breadcrumb.events": "Προσκλήσεις",
+  "breadcrumb.contact": "Επικοινωνία",
+  "breadcrumb.home": "Αρχική"
+
 }

@@ -16,30 +16,33 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIcon} from '@angular/material/icon';
 import {DropDownMenuComponent} from './drop-down-menu/drop-down-menu.component';
+import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MatToolbarModule,
-        MatButtonModule,
-        RouterLink,
-        MatCardTitle,
-        MatCard,
-        MatDialogTitle,
-        MatTabGroup,
-        MatTab,
-        TranslatePipe,
-        MatMenu,
-        MatTooltip,
-        MatMenuTrigger,
-        MatMenuItem,
-        ScrollUpButtonComponent,
-        BrowserAnimationsModule,
-        MatSnackBarModule,
-        MatIcon,
-        DropDownMenuComponent,
-        RouterLinkActive
-    ],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    RouterLink,
+    MatCardTitle,
+    MatCard,
+    MatDialogTitle,
+    MatTabGroup,
+    MatTab,
+    TranslatePipe,
+    MatMenu,
+    MatTooltip,
+    MatMenuTrigger,
+    MatMenuItem,
+    ScrollUpButtonComponent,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    MatIcon,
+    DropDownMenuComponent,
+    RouterLinkActive,
+    BreadcrumbComponent,
+    BreadcrumbItemDirective
+  ],
   providers: [],
   exports: [
     HeaderComponent,

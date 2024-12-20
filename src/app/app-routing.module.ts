@@ -6,11 +6,11 @@ import {NewsComponent} from './news/news.component';
 import {EventsComponent} from './events/events.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'news', component: NewsComponent },
-  { path: 'events', component: EventsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component: HomeComponent , data: { breadcrumb: 'Home' }},
+  { path: 'contact', component: ContactComponent, data: { breadcrumb: 'contact' } },
+  { path: 'news', component: NewsComponent, data: { breadcrumb: 'news' } },
+  { path: 'events', component: EventsComponent, data: { breadcrumb: 'events' } },
+  { path: '', redirectTo: '/home', pathMatch: 'full' , data: { breadcrumb: 'home' } },
 ];
 
 @NgModule({

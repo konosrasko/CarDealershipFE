@@ -76,5 +76,9 @@
 }
 
 .footer-icons a:hover {
-  transform: scale(1.1); /* Enlarge icons on hover */
+  transform: scale(1.1);
+}
+
+.footer-logos{
+  opacity: 60%;
 }

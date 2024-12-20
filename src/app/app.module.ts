@@ -20,6 +20,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { EventsComponent } from './events/events.component';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -59,7 +60,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatToolbar,
     MatIconModule,
     MatTab,
-    MatTabGroup
+    MatTabGroup,
+    BreadcrumbComponent,
+    BreadcrumbItemDirective
   ],
   providers: [
     provideAnimationsAsync()
