@@ -1,0 +1,32 @@
+<div class="login">
+  <form *ngIf="!newPasswordMode" id="accesspanel" action="">
+    <h1>Login</h1>
+
+    <div class="inset">
+      <p class="error">{{error}}</p>
+      <p id="username">
+        <input type="text" name="username" [(ngModel)]="username" required id="email" placeholder="Username">
+      </p>
+      <p>
+        <input type="password" name="password" [(ngModel)]="password" required placeholder="Password">
+      </p>
+    </div>
+
+    <input class="submit" type="submit" name="Login" id="go" value="Login" (click)="doLogin()">
+  </form>
+
+  <form *ngIf="newPasswordMode" action="">
+    <h1>Change Password</h1>
+    <div class="inset">
+      <p style="color: white; text-align: center;">To continue, you must set a new password.</p>
+      <p>
+        <input type="password" name="username" [(ngModel)]="newPassword" required id="pass" placeholder="New Password">
+      </p>
+      <p>
+        <input type="password" name="password" [(ngModel)]="newPasswordConfirm" required id="passConfirm" placeholder="Confirm Password">
+      </p>
+    </div>
+
+    <input class="submit" type="submit" name="Login" value="Submit" (click)="changePassword()">
+  </form>
+</div>

@@ -21,15 +21,15 @@
   </mat-toolbar-row>
   <mat-toolbar-row class="header2" *ngIf="isHidden">
     <div class="tabs">
-      <app-drop-down-menu buttonLabel="{{ 'global.news' | translate }}" routerLinkActive="active">
-        <ng-template #menuItem>
-          <p routerLink="/news">{{ 'contents.news' | translate }}</p>
-        </ng-template>
-        <ng-template #menuItem>
-          <p routerLink="/events">{{ 'global.events' | translate }}</p>
-        </ng-template>
-      </app-drop-down-menu>
-
+<!--      <app-drop-down-menu buttonLabel="{{ 'global.car' | translate }}" routerLinkActive="active">-->
+<!--        <ng-template #menuItem>-->
+<!--          <p routerLink="/buy">{{ 'global.buy' | translate }}</p>-->
+<!--        </ng-template>-->
+<!--        <ng-template #menuItem>-->
+<!--          <p routerLink="/car">{{ 'global.car' | translate }}</p>-->
+<!--        </ng-template>-->
+<!--      </app-drop-down-menu>-->
+      <button class="title" routerLink="/car" routerLinkActive="active">{{ 'global.car' | translate }}</button>
       <!-- Contact Tab -->
       <button class="title" routerLink="/contact" routerLinkActive="active">{{ 'global.contact' | translate }}</button>
     </div>
@@ -52,7 +52,7 @@
   <xng-breadcrumb [autoGenerate]="false">
     <ng-container *xngBreadcrumbItem="let breadcrumb; let last = last; let first = first;">
       <b class="not-last-breadcrumb-item" *ngIf="first"> <i class="fa fa-home"></i></b>
-      <b  class="not-last-breadcrumb-item" *ngIf="!last && !first" [routerLink]="breadcrumb.url">{{ 'breadcrumb.'+breadcrumb | translate}}</b>
+      <b  class="not-last-breadcrumb-item" *ngIf="!last && !first" [routerLink]="breadcrumb.url">{{ 'breadcrumb.' + breadcrumb | translate}}</b>
       <b class="last-breadcrumb-item" *ngIf="last && !first">{{'breadcrumb.'+ breadcrumb | translate}}</b>
     </ng-container>
   </xng-breadcrumb>

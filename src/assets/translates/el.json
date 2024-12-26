@@ -1,5 +1,5 @@
 {
-  "global.title": "SYNERGINN",
+  "global.title": "CarRental",
   "global.english": "Αγγλικά",
   "global.greek": "Ελληνικά",
   "global.changeLanguage": "Άλλαξε γλώσσα",
@@ -10,24 +10,24 @@
   "global.search": "Αναζήτηση",
   "global.readMore": "Διαβάστε περισσότερα",
   "global.clearFilters": "Καθαρισμός φίλτρων",
-  "global.subHomeHeader": "Κόμβος Ψηφιακής Καινοτομίας Δυτικής Μακεδονίας",
   "global.learnMore": "Μάθετε περισσότερα",
-  "global.news": "Νέα και Ανακοινώσεις",
+  "global.car": "Αυτοκίνητο",
   "global.info": "Πληροφορίες",
-  "global.events": "Προσκλήσεις",
+  "global.rents": "Ενοικίαση",
   "global.partners": "Εταίροι",
-  "global.company": "Το Hub",
   "global.pageLinks": "Σελίδες",
-  "global.locationFooter": "Πανεπιστημιούπολη ΠΔΜ, Κοίλα Κοζάνης",
-  "global.workingTime": "Δε - Πα 9:00 - 17:00",
-  "global.companyDetails1": "SYNERGiNN EDIH SYNergy –",
-  "global.companyDetails2": "enERGy – iNNovation Κόμβος",
-  "global.companyDetails3": "Ψηφιακής Καινοτομίας Δυτικής",
-  "global.companyDetails4": "Μακεδονίας EDIH - Δίκτυο",
-  "global.companyDetails5": "Ευρωπαϊκών Κόμβων Ψηφιακής",
-  "global.companyDetails6": "Καινοτομίας",
+  "global.companyDetails": "Μία εταιρία ενοικίασης αυτοκινήτου",
+  "global.company": "Εταιρία",
   "global.openMenu": "Άνοιξε μενού",
   "global.closeMenu": "Κλείσε μενού",
+  "global.workingTime": "Ωράριο λειτουργίας",
+  "global.locationFooter": "Τοποθεσία",
+  "global.buy": "Αγορά",
+  "global.reservation": "Κράτηση για δοκιμή",
+
+  "filter.model": "Μοντέλο",
+  "filter.brand": "Μάρκα",
+  "filter.price": "Τιμή",
 
   "contactForm.name": "Όνομα",
   "contactForm.email": "Ηλ. Ταχυδρομείο",
@@ -35,13 +35,9 @@
   "contactForm.contactUs": "Επικοινωνήστε μαζί μας",
   "contents.contactForm": "Φόρμα επικοινωνίας",
 
-  "filter.category": "Κατηγορία",
-  "filter.areaOfInterest": "Τομέας ενδιαφέροντος",
-  "contents.news": "Νέα",
-
-  "breadcrumb.news": "Νέα",
-  "breadcrumb.events": "Προσκλήσεις",
-  "breadcrumb.contact": "Επικοινωνία",
-  "breadcrumb.home": "Αρχική"
-
+  "breadcrumb.buy": "Αγορά",
+  "breadcrumb.reservation": "Κράτηση για δοκιμή",
+  "breadcrumb.car": "Αυτοκίνητο",
+  "breadcrumb.home": "Αρχική",
+  "breadcrumb.contact": "Επικοινωνία"
 }

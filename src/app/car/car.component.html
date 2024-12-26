@@ -1,0 +1,57 @@
+<div class="rents-container">
+  <mat-toolbar>
+    <span>{{ 'global.car' | translate }}</span>
+  </mat-toolbar>
+
+  <div class="filters">
+
+    <mat-form-field>
+      <mat-label>{{ 'filter.brand' | translate }}</mat-label>
+      <mat-select [(value)]="selectedBrands">
+        <mat-option *ngFor="let category of brands" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ 'filter.model' | translate }}</mat-label>
+      <mat-select [(value)]="selectedModels">
+        <mat-option *ngFor="let category of models" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ 'filter.price' | translate }}</mat-label>
+      <mat-select [(value)]="selectedPriceRanges">
+        <mat-option *ngFor="let area of priceRanges" [value]="area">
+          {{ area }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ 'global.search' | translate }}</mat-label>
+      <input matInput [(ngModel)]="searchText">
+    </mat-form-field>
+
+    <button mat-button (click)="clearFilters()">
+      <mat-icon>filter_list</mat-icon>
+      {{ 'clearFilters' | translate }}
+    </button>
+  </div>
+
+  <mat-card *ngFor="let rent of filteredRents" class="rent-card">
+    <div class="content-container">
+      <a href="{{rent.url}}" target="_blank" class="day-link">
+        {{ rent.title }}
+      </a>
+      <p class="rent-description">{{ rent.description }}</p>
+      <div class="rent-time">
+        <mat-icon>schedule</mat-icon>
+      </div>
+    </div>
+  </mat-card>
+</div>

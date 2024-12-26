@@ -1,4 +1,4 @@
-.events-container {
+.rents-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -11,7 +11,7 @@
   margin-bottom: 20px;
 }
 
-.event-card {
+.rent-card {
   display: flex;
   gap: 16px;
   padding: 16px;
@@ -50,19 +50,19 @@
   gap: 8px;
 }
 
-.event-title {
+.rent-title {
   margin: 0;
   font-size: 18px;
   color: var(--calendar-color);
 }
 
-.event-description {
+.rent-description {
   margin: 0;
   font-size: 14px;
   color: var(--event-description-color);
 }
 
-.event-time {
+.rent-time {
   display: flex;
   align-items: center;
   gap: 4px;

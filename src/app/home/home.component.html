@@ -1,6 +1,6 @@
-<div class="home-container">
+<div class="home-container" *ngIf="authService.getRole() === 'user'">
   <div class="header-container">
-    <h1 class="main-header">SYNERGiNN EDIH</h1>
+    <h1 class="main-header">CAR RENTAL </h1>
     <h2 class="sub-header">{{ 'global.subHomeHeader' | translate }}</h2>
     <button mat-button class="cta-button" style="margin-top: 3%;" (click)="openLearnMore()">{{ 'global.learnMore' | translate }}</button>
   </div>

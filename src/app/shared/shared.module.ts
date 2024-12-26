@@ -17,6 +17,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIcon} from '@angular/material/icon';
 import {DropDownMenuComponent} from './drop-down-menu/drop-down-menu.component';
 import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
     MatMenu,
     MatTooltip,
     MatMenuTrigger,
+    FormsModule,
     MatMenuItem,
     ScrollUpButtonComponent,
     BrowserAnimationsModule,
@@ -47,11 +49,12 @@ import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
   exports: [
     HeaderComponent,
     FooterComponent,
-    ScrollUpButtonComponent
+    ScrollUpButtonComponent,
+
   ],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 

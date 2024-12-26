@@ -14,11 +14,10 @@ import { MatCard, MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatButton, MatButtonModule } from '@angular/material/button';
-import { NewsComponent } from './news/news.component';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { EventsComponent } from './events/events.component';
+import { CarComponent } from './car/car.component';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
 
@@ -30,8 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     ContactComponent,
-    NewsComponent,
-    EventsComponent
+    CarComponent
   ],
   imports: [
     BrowserModule,
