@@ -5,14 +5,18 @@
     <div class="inset">
       <p class="error">{{error}}</p>
       <p id="username">
-        <input type="text" name="username" [(ngModel)]="username" required id="email" placeholder="Username">
+        <input type="text" name="username" [(ngModel)]="afm" required id="email" placeholder="Username">
       </p>
       <p>
         <input type="password" name="password" [(ngModel)]="password" required placeholder="Password">
       </p>
     </div>
 
-    <input class="submit" type="submit" name="Login" id="go" value="Login" (click)="doLogin()">
+    <div class="loginSingup">
+      <i class="signup" (click)="doLogin()">Login</i>
+      <i class="signup" routerLink="/citizen/signup">Sign up as citizen</i>
+      <i class="signup" routerLink="/dealership/signup">Sign up as dealership</i>
+    </div>
   </form>
 
   <form *ngIf="newPasswordMode" action="">

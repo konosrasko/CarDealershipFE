@@ -24,6 +24,9 @@
   "global.closeMenu": "Close Menu",
   "global.buy": "Buy",
   "global.test": "Reservation for test drive",
+  "global.next": "Next",
+  "global.back": "Back",
+  "global.submit": "Submit",
 
   "contactForm.name": "Name",
   "contactForm.email": "Email",
@@ -40,5 +43,18 @@
   "breadcrumb.test": "Reservation for test drive",
   "breadcrumb.car": "Car",
   "breadcrumb.home": "Home",
-  "breadcrumb.contact": "Contact"
+  "breadcrumb.contact": "Contact",
+  "breadcrumb.signup": "Sign up",
+
+  "user.details": "User details",
+  "user.passwordSection": "Credentials",
+  "user.afm": "VAT",
+  "user.password": "User's password",
+  "user.firstname": "Name",
+  "user.lastname": "Surname",
+  "user.email": "Email",
+
+  "dealership.details":  "Dealership details",
+  "dealership.name": "Name",
+  "dealership.owner": "Owner"
 }

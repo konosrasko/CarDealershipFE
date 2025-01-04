@@ -24,6 +24,10 @@
   "global.locationFooter": "Τοποθεσία",
   "global.buy": "Αγορά",
   "global.reservation": "Κράτηση για δοκιμή",
+  "global.next": "Επόμενο",
+  "global.back": "Προηγούμενο",
+  "global.submit": "Επιβαιβέωση",
+
 
   "filter.model": "Μοντέλο",
   "filter.brand": "Μάρκα",
@@ -39,5 +43,18 @@
   "breadcrumb.reservation": "Κράτηση για δοκιμή",
   "breadcrumb.car": "Αυτοκίνητο",
   "breadcrumb.home": "Αρχική",
-  "breadcrumb.contact": "Επικοινωνία"
+  "breadcrumb.contact": "Επικοινωνία",
+  "breadcrumb.signup": "Εγγραφή",
+
+  "user.details": "Πληροφορίες χρήστη",
+  "user.passwordSection": "Διαπιστευτήρια",
+  "user.afm": "Α.Φ.Μ.",
+  "user.password": "Κωδικός χρήστη",
+  "user.firstname": "Όνομα",
+  "user.lastname": "Επίθετο",
+  "user.email": "Email",
+
+  "dealership.details":  "Πληροφορίες Αντιπροσωπίας",
+  "dealership.name": "Όνομα",
+  "dealership.owner": "Ιδιοκτήτης"
 }

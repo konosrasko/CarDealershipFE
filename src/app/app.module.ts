@@ -20,6 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { CarComponent } from './car/car.component';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
+import {UsersComponent} from './users/users.component';
+import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} from '@angular/material/stepper';
+import { DealershipComponent } from './dealership/dealership.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -29,7 +32,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     ContactComponent,
-    CarComponent
+    CarComponent,
+    UsersComponent,
+    DealershipComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTab,
     MatTabGroup,
     BreadcrumbComponent,
-    BreadcrumbItemDirective
+    BreadcrumbItemDirective,
+    MatStep,
+    MatStepperPrevious,
+    MatStepLabel,
+    MatStepper,
+    MatStepperNext
   ],
   providers: [
     provideAnimationsAsync()

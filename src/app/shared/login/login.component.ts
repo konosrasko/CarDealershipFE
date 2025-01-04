@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {TokenController} from './token_controller';
 import {HttpStatusCode} from '@angular/common/http';
 import {ToasterService} from '../toaster/toaster.service';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import {LoginService} from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,13 @@ import {NgIf} from '@angular/common';
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends TokenController {
-  username: string = ''
+  afm: string = ''
   password: string = ''
   newPassword: string = ''
   newPasswordConfirm: string = ''
@@ -27,7 +29,7 @@ export class LoginComponent extends TokenController {
   newPasswordMode: boolean = false;
   tokenExpired: boolean = false;
 
-  constructor(router: Router, private route: ActivatedRoute, private toast: ToasterService) {
+  constructor(router: Router,private loginService: LoginService, private route: ActivatedRoute, private toast: ToasterService) {
     super(router)
 
     const savedToken = localStorage.getItem("token");
@@ -63,32 +65,27 @@ export class LoginComponent extends TokenController {
   }
 
   doLogin() {
-    // this.userService.Login(this.username, this.password).subscribe({
-      // next: data => {
-      //   this.token = data.token;
-      //
-      //   if (this.token != null) {
-      //     localStorage.setItem('token', this.token);
-      //     this.checkIfUserIsEnabled();
-      //   }else{
-      //     if(localStorage.getItem('message')!='Welcome')
-      //     {
-      //       this.toast.error({ detail: 'Ειστε ήδη συνδεδεμένος από άλλη πηγή,αποσυνδεθείτε και προσπάθείστε ξανά', position: "topRight", duration: 3000 });
-      //     }
-      //       this.getRouter()?.navigate(["/login"]);
-      //
-      //   }
-      // },
-      // error: error => {
-      //   this.toast.error({
-      //     detail: 'Αποτυχία!',
-      //     summary: error.status === HttpStatusCode.GatewayTimeout ? "Πρόβλημα σύνδεσης με τον διακομιστή" : error.error,
-      //     position: "topRight", duration: 4000
-      //   });
-      // }
+    this.loginService.login(this.afm, this.password).subscribe({
+      next: data => {
+        console.log(data);
+        this.token = data;
 
+        if (this.token != null) {
+          localStorage.setItem('token', this.token);
+          this.checkIfUserIsEnabled();
+        }else{
+          if(localStorage.getItem('message')!='Welcome')
+          {
+            this.toast.showError('Ειστε ήδη συνδεδεμένος από άλλη πηγή,αποσυνδεθείτε και προσπάθείστε ξανά');
+          }
+            this.getRouter()?.navigate(["/login"]);
 
-    // });
+        }
+      },
+      error: error => {
+        this.toast.showError('Αποτυχία!');
+      }
+    });
   }
 
   changePassword() {

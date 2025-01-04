@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 
 export class TokenController{
 
-    constructor(private router: Router) { }
+    constructor(private router: Router) {}
 
     createHeadersWithToken(): HttpHeaders {
         const token = this.getToken();

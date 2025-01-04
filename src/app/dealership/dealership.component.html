@@ -1,0 +1,35 @@
+<div class="centered-container">
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>{{ 'dealership.details' | translate }}</ng-template>
+      <form [formGroup]="firstFormGroup" class="form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'dealership.name' | translate }}</mat-label>
+          <input matInput formControlName="name" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'dealership.owner' | translate }}</mat-label>
+          <input matInput formControlName="owner" required />
+        </mat-form-field>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>{{ 'user.passwordSection' | translate }}</ng-template>
+      <form [formGroup]="secondFormGroup" class="form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'user.afm' | translate }}</mat-label>
+          <input matInput formControlName="afm" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'user.password' | translate }}</mat-label>
+          <input matInput type="password" formControlName="password" required />
+        </mat-form-field>
+      </form>
+      <div>
+        <button mat-button matStepperPrevious>{{ 'global.back' | translate }}</button>
+        <button mat-button (click)="onSubmit()" [disabled]="secondFormGroup.invalid">{{ 'global.submit' | translate }}</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
