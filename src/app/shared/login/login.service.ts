@@ -12,8 +12,9 @@ export class LoginService {
 
   login(afm?: string, password?: string): Observable<any> {
    return this.http.post<any>(
-      `${this.dealershipUrl}?afm=${afm}&password=${password}`, { responseType: 'text' },
+      `${this.dealershipUrl}?afm=${afm}&password=${password}`, { responseType: 'text' as 'json' },
       {}
     );
   }
+
 }

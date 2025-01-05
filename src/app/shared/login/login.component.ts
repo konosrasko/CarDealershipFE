@@ -66,77 +66,29 @@ export class LoginComponent extends TokenController {
 
   doLogin() {
     this.loginService.login(this.afm, this.password).subscribe({
-      next: data => {
-        console.log(data);
-        this.token = data;
-
-        if (this.token != null) {
+      next:data=> {
+        this.token = data.token;
+        console.log('Received token:', this.token);
+        if (this.token) {
           localStorage.setItem('token', this.token);
-          this.checkIfUserIsEnabled();
-        }else{
-          if(localStorage.getItem('message')!='Welcome')
-          {
-            this.toast.showError('Ειστε ήδη συνδεδεμένος από άλλη πηγή,αποσυνδεθείτε και προσπάθείστε ξανά');
-          }
-            this.getRouter()?.navigate(["/login"]);
-
+          this.getRouter()?.navigate(['/car']);
         }
       },
-      error: error => {
-        this.toast.showError('Αποτυχία!');
-      }
+      error: (error) => {
+        console.error('Login error:', error);
+        const errorMessage =
+          error.status === 401
+            ? 'Invalid credentials. Please try again.'
+            : 'Something went wrong. Please try later.';
+        this.toast.showError(errorMessage);
+      },
     });
   }
-
-  changePassword() {
-    if (this.newPassword == this.newPasswordConfirm) {
-      this.user.password = this.newPassword;
-      this.user.passTemp = false;
-      // this.userService.editUserAccount(this.user, true, this.user.id).subscribe({
-      //   next: data => {
-      //     this.toast.showSuccess('Επιτυχία!')
-      //     this.toast.showSuccess('Επιτυχής Αποθήκευση!');
-      //     this.getRouter()?.navigate(['/home']);
-      //   },
-      //   error: error => {
-      //     this.toast.showError('Αποτυχία!');
-      //   }
-      // })
+  logout() {
+        console.log('Logout successful:');
+        localStorage.clear();
+        this.toast.showSuccess('Successfully logged out!');
+        this.getRouter()?.navigate(['/login']);
 
     }
-    else {
-      this.toast.showError('Aποτυχία!');
-    }
-  }
-
-  checkIfUserIsEnabled() {
-    // this.userService.getUserDetails().subscribe({
-      // next: data => {
-      //   if (data) {
-      //     this.user = data
-      //     if (data.enable) {
-      //       if (!this.user.passTemp) {
-      //         this.getRouter()?.navigate(['/home/landing']);
-      //       }
-      //       else {
-      //         this.openNewPasswordForm()
-      //       }
-      //     } else {
-      //       this.error = "Ο λογαριασμός ειναι απενεργοποιημένος. Δεν έχετε δικαίωμα πρόσβασης."
-      //     }
-      //   }
-      // },
-      // error: error => {
-      //   this.toast.error({
-      //     detail: 'Αποτυχία!',
-      //     summary: error.status === HttpStatusCode.GatewayTimeout ? "Πρόβλημα σύνδεσης με τον διακομιστή" : error.error,
-      //     position: "topRight", duration: 4000
-      //   });
-      // }
-    // })
-  }
-
-  openNewPasswordForm() {
-    this.newPasswordMode = true;
-  }
 }

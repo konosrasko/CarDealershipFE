@@ -10,12 +10,23 @@
       </button>
     </div>
 
+
     <div class="right-button">
+      <button
+        *ngIf="tokenInLocalStorage()"
+        mat-raised-button
+        class="logout-button"
+        color="warn"
+        (click)="logout()">
+        Logout
+      </button>
        <span class="topBar-language">
     <button mat-icon-button [matMenuTriggerFor]="languageMenu" matTooltip="{{ 'global.changeLanguage' | translate }}">
       <img *ngIf="localStorage.getItem('language') === 'en'" src="assets/images/flags/en-round.png" alt="English Flag"/>
       <img *ngIf="localStorage.getItem('language') === 'el'" src="assets/images/flags/el-round.png" alt="Greek Flag"/>
     </button>
+
+
   </span>
     </div>
   </mat-toolbar-row>
@@ -29,9 +40,10 @@
 <!--          <p routerLink="/car">{{ 'global.car' | translate }}</p>-->
 <!--        </ng-template>-->
 <!--      </app-drop-down-menu>-->
-      <button class="title" routerLink="/car" routerLinkActive="active">{{ 'global.car' | translate }}</button>
+
+      <button *ngIf="tokenInLocalStorage()" class="title" routerLink="/car" routerLinkActive="active">{{ 'global.car' | translate }}</button>
       <!-- Contact Tab -->
-      <button class="title" routerLink="/contact" routerLinkActive="active">{{ 'global.contact' | translate }}</button>
+      <button *ngIf="tokenInLocalStorage()" class="title" routerLink="/contact" routerLinkActive="active">{{ 'global.contact' | translate }}</button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

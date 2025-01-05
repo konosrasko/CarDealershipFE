@@ -137,3 +137,16 @@
   font-weight: 300;
   cursor: default;
 }
+
+.logout-button {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: var(--active-color);
+  color: white;
+}
