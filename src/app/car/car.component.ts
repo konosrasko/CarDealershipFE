@@ -19,27 +19,20 @@ export class CarComponent implements OnInit{
   searchText: string = '';
   rents: Car[] = [];
 
-  constructor(private reservationService: CarService,
-              private toaster: ToasterService
-  ) {}
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    // this.rentService.getRents().subscribe({
-    //   next: (value: Event[]) => {
-    //     this.car = this.car.concat(value);
-    //   },
-    //   error: () => {
-    //     this.toaster.showError('Error! Something went wrong.');
-    //   }
-    // })
+    this.carService.getCars().subscribe(data => {
+      this.rents = data;
+    });
   }
-
+  
   get filteredRents() {
     return this.rents.filter(rent => {
       const matchesBrand = this.selectedBrands === 'All' || rent.brand === this.selectedBrands;
       const matchesModel = this.selectedModels === 'All' || rent.model === this.selectedModels;
-      const matchesPriceRange = this.selectedPriceRanges === 'All' || rent.priceRange === this.selectedPriceRanges;
-      const matchesSearch = rent.title?.toLowerCase().includes(this.searchText.toLowerCase());
+      const matchesPriceRange = this.selectedPriceRanges === 'All' || rent.price === this.selectedPriceRanges;
+      const matchesSearch = rent.additionalInfo?.toLowerCase().includes(this.searchText.toLowerCase());
 
       return matchesBrand && matchesModel && matchesPriceRange && matchesSearch;
     });

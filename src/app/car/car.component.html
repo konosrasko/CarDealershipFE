@@ -45,13 +45,8 @@
 
   <mat-card *ngFor="let rent of filteredRents" class="rent-card">
     <div class="content-container">
-      <a href="{{rent.url}}" target="_blank" class="day-link">
-        {{ rent.title }}
-      </a>
-      <p class="rent-description">{{ rent.description }}</p>
-      <div class="rent-time">
-        <mat-icon>schedule</mat-icon>
-      </div>
+      <p class="rent-title">{{ rent.brand }} {{ rent.model }}</p>
+      <p class="rent-description">{{ rent.additionalInfo }} | {{ rent.price }}</p>
     </div>
   </mat-card>
 </div>
