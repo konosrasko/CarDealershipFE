@@ -47,6 +47,31 @@
     <div class="content-container">
       <p class="rent-title">{{ rent.brand }} {{ rent.model }}</p>
       <p class="rent-description">{{ rent.additionalInfo }} | {{ rent.price }}</p>
+
+      <div class="button-container">
+        <button *ngIf="userRole === 'ROLE_CITIZEN'" mat-button class="buy-btn" (click)="purchaseCar(rent.carId)">BUY</button>
+        <button *ngIf="userRole === 'ROLE_CITIZEN'" mat-button class="test-drive-btn">TEST DRIVE</button>
+      </div>
+
+      <!-- Dealership Buttons -->
+      <div class="button-container" *ngIf="userRole === 'ROLE_DEALERSHIP'">
+        <button mat-icon-button class="edit-btn" aria-label="Edit" >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="delete-btn" aria-label="Delete" >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
   </mat-card>
+
+  <div class="add-car-container">
+    <!-- Add Car Button -->
+    <button *ngIf="userRole === 'ROLE_DEALERSHIP'" class="add-car-btn" (click)="openModal()" >
+      <span>➕</span> Add Car
+    </button>
+
+    <app-add-car-modal *ngIf="isModalOpen" (close)="closeModal()"></app-add-car-modal>
+  </div>
+
 </div>

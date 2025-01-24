@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CarService} from './car.service';
 import {Car} from './car.model';
 import {ToasterService} from '../shared/toaster/toaster.service';
+import {HttpHeaders} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-car',
@@ -18,15 +20,60 @@ export class CarComponent implements OnInit{
   selectedPriceRanges: string = 'All';
   searchText: string = '';
   rents: Car[] = [];
+  userRole: string | null = '';
+  isModalOpen: boolean = false;
+
+
 
   constructor(private carService: CarService) {}
+
 
   ngOnInit(): void {
     this.carService.getCars().subscribe(data => {
       this.rents = data;
     });
+
+  this.userRole = localStorage.getItem('userRole');
   }
-  
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  // Method to trigger the purchase process
+  purchaseCar(carId: number | null): void {
+    // Retrieve the token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Check if the token exists
+    if (!token) {
+      alert('Error: No authentication token found');
+      return;
+    }
+
+    // Create HTTP headers with the Bearer token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    // Call the purchaseCar method from the service with headers
+    this.carService.purchaseCar(carId, { headers }).subscribe({
+      next: (response) => {
+        alert('Purchase successful');
+        console.log('Purchase Response:', response);
+
+      },
+      error: (err) => {
+        alert('Error: ' + (err.error || err.message));
+        console.error('Error:', err);
+      }
+    });
+  }
+
   get filteredRents() {
     return this.rents.filter(rent => {
       const matchesBrand = this.selectedBrands === 'All' || rent.brand === this.selectedBrands;

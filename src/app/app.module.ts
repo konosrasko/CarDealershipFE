@@ -23,6 +23,7 @@ import {BreadcrumbComponent, BreadcrumbItemDirective} from 'xng-breadcrumb';
 import {UsersComponent} from './users/users.component';
 import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} from '@angular/material/stepper';
 import { DealershipComponent } from './dealership/dealership.component';
+import { AddCarModalComponent } from './add-car-modal/add-car-modal.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -70,7 +71,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatStepperPrevious,
     MatStepLabel,
     MatStepper,
-    MatStepperNext
+    MatStepperNext,
+    AddCarModalComponent
   ],
   providers: [
     provideAnimationsAsync()

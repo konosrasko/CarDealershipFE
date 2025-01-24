@@ -73,3 +73,74 @@
 mat-icon {
   font-size: 16px;
 }
+
+
+.add-car-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-car-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-car-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.rent-card {
+  margin: 10px;
+  padding: 10px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px;
+}
+
+.buy-btn {
+  background-color: red;
+  color: white;
+}
+
+.test-drive-btn {
+  background-color: green;
+  color: white;
+}
+
+/* Icon buttons */
+.edit-btn {
+  color: #4caf50; /* Green for edit */
+}
+
+.delete-btn {
+  color: #f44336; /* Red for delete */
+}
+
+.buy-btn, .test-drive-btn {
+  width: 150px; /* Set width for square shape */
+  height: 50px; /* Set height for square shape */
+  padding: 0; /* Remove inner padding */
+  font-size: 14px; /* Optional: Adjust text size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 14px;
+}

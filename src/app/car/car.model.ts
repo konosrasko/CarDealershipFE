@@ -1,5 +1,5 @@
 export class Car {
-  public id: number | null = null;
+  public carId: number | null = null;
   public brand: string | null = null;
   public model: string | null = null;
   public fuel_type: string | null = null;

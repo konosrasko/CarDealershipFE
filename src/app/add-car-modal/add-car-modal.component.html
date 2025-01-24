@@ -1,0 +1,59 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2>Add Car</h2>
+    <form (ngSubmit)="onSubmit()" #addCarForm="ngForm" class="add-car-form">
+      <!-- Car Brand -->
+      <div class="form-group">
+        <label for="carBrand">Brand:</label>
+        <input type="text" id="carBrand" name="carBrand" [(ngModel)]="carData.brand" required />
+      </div>
+
+      <!-- Model -->
+      <div class="form-group">
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" [(ngModel)]="carData.model" required />
+      </div>
+
+      <!-- Fuel Type -->
+      <div class="form-group">
+        <label for="fuelType">Fuel Type:</label>
+        <input type="text" id="fuelType" name="fuelType" [(ngModel)]="carData.fuelType" required />
+      </div>
+
+      <!-- Engine Capacity -->
+      <div class="form-group">
+        <label for="engineCapacity">Engine Capacity:</label>
+        <input type="text" id="engineCapacity" name="engineCapacity" [(ngModel)]="carData.engineCapacity" required />
+      </div>
+
+      <!-- Seats -->
+      <div class="form-group">
+        <label for="seats">Seats:</label>
+        <input type="number" id="seats" name="seats" [(ngModel)]="carData.seats" required />
+      </div>
+
+      <!-- Price -->
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="carData.price" required />
+      </div>
+
+      <!-- Quantity -->
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" [(ngModel)]="carData.quantity" required />
+      </div>
+
+      <!-- Additional Information -->
+      <div class="form-group">
+        <label for="additionalInfo">Additional Information:</label>
+        <textarea id="additionalInfo" name="additionalInfo" [(ngModel)]="carData.additionalInfo" required></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="cancel-btn" (click)="closeModal()">Cancel</button>
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

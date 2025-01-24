@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {TokenController} from './token_controller';
-import {HttpStatusCode} from '@angular/common/http';
 import {ToasterService} from '../toaster/toaster.service';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
@@ -25,6 +24,7 @@ export class LoginComponent extends TokenController {
   newPasswordConfirm: string = ''
   error: string = ''
   token?: string;
+  userRole: string = '';
   user: any;
   newPasswordMode: boolean = false;
   tokenExpired: boolean = false;
@@ -64,6 +64,37 @@ export class LoginComponent extends TokenController {
 
   }
 
+  decodeJwt(token: string) {
+    // Split the token into its three parts (header, payload, signature)
+    const parts = token.split('.');
+
+    // Decode the payload (the second part of the JWT)
+    const payload = parts[1];
+
+    // Base64Url decode the payload
+    const decodedPayload = this.base64UrlDecode(payload);
+
+    // Parse the JSON string into an object
+    const parsedPayload = JSON.parse(decodedPayload);
+
+    // Extract the role (assuming it's stored in the 'role' property)
+    return parsedPayload.role;
+  }
+
+  base64UrlDecode(base64Url: string): string {
+    // Replace non-base64 characters with base64 compatible ones
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+    // Add padding if necessary
+    const padding = '='.repeat((4 - base64.length % 4) % 4);
+    const base64WithPadding = base64 + padding;
+
+    // Decode the base64 string
+    const decodedString = atob(base64WithPadding);
+
+    return decodedString;
+  }
+
   doLogin() {
     this.loginService.login(this.afm, this.password).subscribe({
       next:data=> {
@@ -71,6 +102,9 @@ export class LoginComponent extends TokenController {
         console.log('Received token:', this.token);
         if (this.token) {
           localStorage.setItem('token', this.token);
+          this.userRole = this.decodeJwt(this.token);
+          console.log('Role:',this.userRole);
+          localStorage.setItem('userRole',this.userRole);
           this.getRouter()?.navigate(['/car']);
         }
       },
