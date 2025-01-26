@@ -1,0 +1,19 @@
+<div class="modal" *ngIf="isCalendarOpen">
+  <div class="modal-content">
+    <h2>Select Date and Time</h2>
+
+    <!-- Date Picker -->
+    <label for="date">Choose a Date:</label>
+    <input type="date" id="date" [(ngModel)]="selectedDate" />
+
+    <br>
+    <!-- Time Picker -->
+    <label for="time">Choose a Time:</label>
+    <input type="time" id="time" [(ngModel)]="selectedTime" />
+
+    <div class="modal-actions">
+      <button (click)="closeCalendar()">Cancel</button>
+      <button (click)="submit()">Submit</button>
+    </div>
+  </div>
+</div>
