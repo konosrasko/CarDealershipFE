@@ -17,6 +17,14 @@ export class CarService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+  deleteCar(carId: number | null): Observable<any> {
+    if (!carId) {
+      throw new Error('Car ID is required');
+    }
+    const deleteUrl = `${this.apiOnly}/delete?carId=${carId}`;
+    return this.http.delete<any>(deleteUrl); // Use DELETE instead of POST
+  }
+
   purchaseCar(carId: number | null, options?: { headers?: HttpHeaders }): Observable<any> {
     if (!carId) {
       throw new Error('Car ID is required');

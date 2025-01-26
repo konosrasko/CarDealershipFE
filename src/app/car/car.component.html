@@ -58,7 +58,7 @@
         <button mat-icon-button class="edit-btn" aria-label="Edit" >
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button class="delete-btn" aria-label="Delete" >
+        <button mat-icon-button class="delete-btn" aria-label="Delete" (click)="deleteCar(rent.carId)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

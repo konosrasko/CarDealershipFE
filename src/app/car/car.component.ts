@@ -44,6 +44,24 @@ export class CarComponent implements OnInit{
     this.isModalOpen = false;
   }
 
+
+
+  deleteCar(carId: number | null): void {
+    this.carService.deleteCar(carId).subscribe({
+
+      next: (response) => {
+        alert('Deleted successful');
+        console.log('Delete Response:', response);
+
+      },
+      error: (err) => {
+        alert('Error: ' + (err.error || err.message));
+        console.error('Error:', err);
+      }
+    });
+
+  }
+
   // Method to trigger the purchase process
   purchaseCar(carId: number | null): void {
     // Retrieve the token from localStorage
