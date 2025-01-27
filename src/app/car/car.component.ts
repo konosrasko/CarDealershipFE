@@ -23,6 +23,7 @@ export class CarComponent implements OnInit{
   userRole: string | null = '';
   isModalOpen: boolean = false;
   isCalendarOpen: boolean = false;
+  selectedCarId: number | null = null;
 
 
 
@@ -37,7 +38,8 @@ export class CarComponent implements OnInit{
   this.userRole = localStorage.getItem('userRole');
   }
 
-  openCalendar(): void {
+  openCalendar(carId: number | null): void {
+    this.selectedCarId = carId;
     this.isCalendarOpen = true; // Open the modal
   }
 

@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class LoginService {
   private dealershipUrl = 'http://localhost:8080/auth/login';
+  private apiUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) {}
 
@@ -16,5 +17,10 @@ export class LoginService {
       {}
     );
   }
+
+  getIdByAfm(afm: string): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/get-id`, { params: { afm } });
+  }
+
 
 }

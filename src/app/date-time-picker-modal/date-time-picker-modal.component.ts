@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-date-time-picker-modal',
@@ -14,10 +15,14 @@ import {NgIf} from '@angular/common';
 export class DateTimePickerModalComponent {
   @Output() close = new EventEmitter<void>();
   @Output() submitDateTime = new EventEmitter<{ date: string, time: string }>();
+  @Input() carId: number | null = null;
 
   isCalendarOpen = true;
   selectedDate: string | null = null;
   selectedTime: string | null = null;
+  private resrvationUrl = 'http://localhost:8080/api/reservation/test-drive';
+
+  constructor(private http: HttpClient) {}
 
   closeCalendar(): void {
     this.isCalendarOpen = false;
@@ -25,7 +30,24 @@ export class DateTimePickerModalComponent {
   }
 
   submit(): void {
-    console.log("DATE:" + this.selectedDate + " TIME:" + this.selectedTime);
-    this.closeCalendar(); // Close the modal after submitting
+
+    const reservation = {
+      citizenId: 1, // Replace with actual citizenId
+      carId: this.carId,     // Replace with actual carId
+      reservationDate: this.selectedDate,
+      reservationTime: this.selectedTime
+    };
+
+    this.http.post(this.resrvationUrl, reservation).subscribe({
+      next: (response: any) => {
+        alert('Your reservation is booked for: ' + this.selectedDate + ' at ' + this.selectedTime);
+        console.log('Reservation successful:', response);
+      },
+      error: (error: any) => {
+        console.error('Error while making a reservation:', error);
+      }
+    });
+
+    this.closeCalendar();
   }
 }

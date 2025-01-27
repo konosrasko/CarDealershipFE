@@ -25,7 +25,7 @@ export class LoginComponent extends TokenController {
   error: string = ''
   token?: string;
   userRole: string = '';
-  user: any;
+  userId!: number;
   newPasswordMode: boolean = false;
   tokenExpired: boolean = false;
 
@@ -96,6 +96,18 @@ export class LoginComponent extends TokenController {
   }
 
   doLogin() {
+    const getId = (afm: string): any => {
+      this.loginService.getIdByAfm(afm).subscribe({
+        next: (id) => {
+          this.userId = id;
+          console.log('User ID:', this.userId);
+        },
+        error: (err) => {
+          console.error('Error fetching user ID:', err);
+        },
+      });
+    }
+
     this.loginService.login(this.afm, this.password).subscribe({
       next:data=> {
         this.token = data.token;
@@ -105,6 +117,8 @@ export class LoginComponent extends TokenController {
           this.userRole = this.decodeJwt(this.token);
           console.log('Role:',this.userRole);
           localStorage.setItem('userRole',this.userRole);
+          console.log('id', getId(this.afm));
+          localStorage.setItem('userID',getId(this.afm));
           this.getRouter()?.navigate(['/car']);
         }
       },
@@ -118,6 +132,7 @@ export class LoginComponent extends TokenController {
       },
     });
   }
+
   logout() {
         console.log('Logout successful:');
         localStorage.clear();

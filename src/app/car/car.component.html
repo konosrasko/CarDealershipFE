@@ -50,10 +50,8 @@
 
       <div class="button-container">
         <button *ngIf="userRole === 'ROLE_CITIZEN'" mat-button class="buy-btn" (click)="purchaseCar(rent.carId)">BUY</button>
-        <button *ngIf="userRole === 'ROLE_CITIZEN'" mat-button class="test-drive-btn" (click)="openCalendar()">TEST DRIVE</button>
-
+        <button *ngIf="userRole === 'ROLE_CITIZEN'" mat-button class="test-drive-btn" (click)="openCalendar(rent.carId)">TEST DRIVE</button>
       </div>
-
       <!-- Dealership Buttons -->
       <div class="button-container" *ngIf="userRole === 'ROLE_DEALERSHIP'">
         <button mat-icon-button class="edit-btn" aria-label="Edit" >
@@ -66,10 +64,9 @@
     </div>
   </mat-card>
 
-  <app-date-time-picker-modal
-    *ngIf="isCalendarOpen"
-    (close)="closeCalendar()">
-  </app-date-time-picker-modal>
+  <app-date-time-picker-modal *ngIf="isCalendarOpen" (close)="closeCalendar()" [carId]="selectedCarId"> </app-date-time-picker-modal>
+
+
 
   <div class="add-car-container">
     <!-- Add Car Button -->
