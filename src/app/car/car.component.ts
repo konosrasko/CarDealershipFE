@@ -3,6 +3,7 @@ import {CarService} from './car.service';
 import {Car} from './car.model';
 import {ToasterService} from '../shared/toaster/toaster.service';
 import {HttpHeaders} from '@angular/common/http';
+import {switchMap} from 'rxjs';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class CarComponent implements OnInit{
   searchText: string = '';
   rents: Car[] = [];
   userRole: string | null = '';
+  userId!: number;
   isModalOpen: boolean = false;
   isCalendarOpen: boolean = false;
   selectedCarId: number | null = null;
@@ -31,11 +33,22 @@ export class CarComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.carService.getCars().subscribe(data => {
+    this.userRole = localStorage.getItem('userRole');
+    const afm = <string>localStorage.getItem('afm');
+
+    this.carService.getIdByAfm(afm).pipe(
+      switchMap(id => {
+        this.userId = id;
+        localStorage.setItem('userID',String(id));
+        if (this.userRole == 'ROLE_CITIZEN') {
+          return this.carService.getCars(); // Switch to the getCars observable
+        } else {
+          return this.carService.getCarsForDealers(this.userId); // Switch to the getCarsForDealers observable
+        }
+      })
+    ).subscribe(data => {
       this.rents = data;
     });
-
-  this.userRole = localStorage.getItem('userRole');
   }
 
   openCalendar(carId: number | null): void {

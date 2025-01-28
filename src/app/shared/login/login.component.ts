@@ -96,19 +96,7 @@ export class LoginComponent extends TokenController {
   }
 
   doLogin() {
-    const getId = (afm: string): any => {
-      this.loginService.getIdByAfm(afm).subscribe({
-        next: (id) => {
-          this.userId = id;
-          console.log('User ID:', this.userId);
-        },
-        error: (err) => {
-          console.error('Error fetching user ID:', err);
-        },
-      });
-    }
-
-    this.loginService.login(this.afm, this.password).subscribe({
+        this.loginService.login(this.afm, this.password).subscribe({
       next:data=> {
         this.token = data.token;
         console.log('Received token:', this.token);
@@ -117,8 +105,7 @@ export class LoginComponent extends TokenController {
           this.userRole = this.decodeJwt(this.token);
           console.log('Role:',this.userRole);
           localStorage.setItem('userRole',this.userRole);
-          console.log('id', getId(this.afm));
-          localStorage.setItem('userID',getId(this.afm));
+          localStorage.setItem('afm',this.afm);
           this.getRouter()?.navigate(['/car']);
         }
       },

@@ -24,7 +24,7 @@ export class AddCarModalComponent {
     price: null,
     quantity: null,
     additionalInfo: '',
-    dealershipId: 1
+    dealershipId:localStorage.getItem('userID')
   };
 
   constructor(private http: HttpClient) {}

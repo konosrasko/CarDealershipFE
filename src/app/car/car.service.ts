@@ -10,11 +10,21 @@ export class CarService {
 
   private apiOnly = 'http://localhost:8080/api';
 
+  private apiUrlForDelears = 'http://localhost:8080/api/carsForDelearship';
+
 
   constructor(private http: HttpClient) {}
 
+  getIdByAfm(afm: string): Observable<number> {
+    return this.http.get<number>(`${this.apiOnly}/get-id`, { params: { afm } });
+  }
   getCars(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
+  }
+
+  getCarsForDealers(dealerId: number | null): Observable<any[]> {
+    const url = `${this.apiUrlForDelears}?dealerID=${(dealerId)}`;
+    return this.http.get<any[]>(url);
   }
 
   deleteCar(carId: number | null): Observable<any> {
