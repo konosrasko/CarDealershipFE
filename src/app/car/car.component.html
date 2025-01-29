@@ -54,7 +54,7 @@
       </div>
       <!-- Dealership Buttons -->
       <div class="button-container" *ngIf="userRole === 'ROLE_DEALERSHIP'">
-        <button mat-icon-button class="edit-btn" aria-label="Edit" >
+        <button mat-icon-button class="edit-btn" aria-label="Edit" (click)="openModalForEdit(rent.carId)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button class="delete-btn" aria-label="Delete" (click)="deleteCar(rent.carId)">
@@ -63,9 +63,7 @@
       </div>
     </div>
   </mat-card>
-
   <app-date-time-picker-modal *ngIf="isCalendarOpen" (close)="closeCalendar()" [carId]="selectedCarId"> </app-date-time-picker-modal>
-
 
 
   <div class="add-car-container">
@@ -74,7 +72,7 @@
       <span>➕</span> Add Car
     </button>
 
-    <app-add-car-modal *ngIf="isModalOpen" (close)="closeModal()"></app-add-car-modal>
+    <app-add-car-modal *ngIf="isModalOpen" (close)="closeModal()" [carId]="selectedCarId"></app-add-car-modal>
   </div>
 
 </div>

@@ -60,6 +60,10 @@ export class CarComponent implements OnInit{
     this.isCalendarOpen = false; // Close the modal
   }
 
+  openModalForEdit(carId: number | null) {
+    this.isModalOpen = true;
+    this.selectedCarId = carId;
+  }
 
   openModal() {
     this.isModalOpen = true;
