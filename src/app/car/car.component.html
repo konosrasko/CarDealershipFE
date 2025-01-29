@@ -63,6 +63,7 @@
       </div>
     </div>
   </mat-card>
+  <app-reservations-list *ngIf="userRole === 'ROLE_CITIZEN'"></app-reservations-list>
   <app-date-time-picker-modal *ngIf="isCalendarOpen" (close)="closeCalendar()" [carId]="selectedCarId"> </app-date-time-picker-modal>
 
 

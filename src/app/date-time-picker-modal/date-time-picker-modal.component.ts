@@ -32,7 +32,7 @@ export class DateTimePickerModalComponent {
   submit(): void {
 
     const reservation = {
-      citizenId: 1, // Replace with actual citizenId
+      citizenId: localStorage.getItem('userID'),
       carId: this.carId,     // Replace with actual carId
       reservationDate: this.selectedDate,
       reservationTime: this.selectedTime

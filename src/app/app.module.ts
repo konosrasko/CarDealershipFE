@@ -25,6 +25,7 @@ import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} f
 import { DealershipComponent } from './dealership/dealership.component';
 import { AddCarModalComponent } from './add-car-modal/add-car-modal.component';
 import { DateTimePickerModalComponent } from './date-time-picker-modal/date-time-picker-modal.component';
+import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/translates/', '.json');
@@ -74,7 +75,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatStepper,
     MatStepperNext,
     AddCarModalComponent,
-    DateTimePickerModalComponent
+    DateTimePickerModalComponent,
+    ReservationsListComponent
   ],
   providers: [
     provideAnimationsAsync()

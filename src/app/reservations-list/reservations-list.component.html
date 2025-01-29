@@ -1,0 +1,7 @@
+<div class="reservations-box">
+  <h3>My Reservations</h3>
+  <mat-card *ngFor="let reservation of reservations" class="list-card">
+    <strong>{{ reservation.car.brand }} {{ reservation.car.model }}</strong>
+    <span>{{ reservation.reservationDate }} at {{ reservation.reservationTime }}</span>
+  </mat-card>
+</div>

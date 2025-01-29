@@ -15,7 +15,10 @@
   display: flex;
   gap: 16px;
   padding: 16px;
+  width: 50vw;
 }
+
+
 
 .date-container {
   flex-shrink: 0;
