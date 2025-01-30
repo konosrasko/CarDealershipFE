@@ -27,7 +27,8 @@ export class CarComponent implements OnInit{
   isCalendarOpen: boolean = false;
   selectedCarId: number | null = null;
 
-
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
 
   constructor(private carService: CarService) {}
 
@@ -41,9 +42,9 @@ export class CarComponent implements OnInit{
         this.userId = id;
         localStorage.setItem('userID',String(id));
         if (this.userRole == 'ROLE_CITIZEN') {
-          return this.carService.getCars(); // Switch to the getCars observable
+          return this.carService.getCars(); //
         } else {
-          return this.carService.getCarsForDealers(this.userId); // Switch to the getCarsForDealers observable
+          return this.carService.getCarsForDealers(<string><unknown>this.userId); //
         }
       })
     ).subscribe(data => {
@@ -73,50 +74,35 @@ export class CarComponent implements OnInit{
     this.isModalOpen = false;
   }
 
-
-
   deleteCar(carId: number | null): void {
-    this.carService.deleteCar(carId).subscribe({
-
+    this.carService.deleteCar(<string><unknown>carId).subscribe({
       next: (response) => {
-        alert('Deleted successful');
-        console.log('Delete Response:', response);
-
+        this.successMessage = response.message;
+        this.errorMessage = null;
+        alert(this.successMessage);
       },
       error: (err) => {
-        alert('Error: ' + (err.error || err.message));
-        console.error('Error:', err);
+        this.successMessage = null;
+        this.errorMessage = err.message;
+        alert(this.errorMessage);
       }
     });
-
   }
 
   // Method to trigger the purchase process
   purchaseCar(carId: number | null): void {
-    // Retrieve the token from localStorage
-    const token = localStorage.getItem('token');
-
-    // Check if the token exists
-    if (!token) {
-      alert('Error: No authentication token found');
-      return;
-    }
-
-    // Create HTTP headers with the Bearer token
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-
     // Call the purchaseCar method from the service with headers
-    this.carService.purchaseCar(carId, { headers }).subscribe({
+    this.carService.purchaseCar(<string><unknown>carId).subscribe({
       next: (response) => {
-        alert('Purchase successful');
-        console.log('Purchase Response:', response);
+        this.successMessage = response.message;
+        this.errorMessage = null;
+        alert(this.successMessage);
 
       },
       error: (err) => {
-        alert('Error: ' + (err.error || err.message));
-        console.error('Error:', err);
+        this.successMessage = null;
+        this.errorMessage = err.message;
+        alert(this.errorMessage);
       }
     });
   }

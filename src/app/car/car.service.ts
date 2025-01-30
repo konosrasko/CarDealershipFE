@@ -2,48 +2,62 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+//Base URL for all URLs
+var baseUrl = 'http://localhost:8080/api';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
-  private apiUrl = 'http://localhost:8080/api/cars';  // URL of Spring Boot API
-
-  private apiOnly = 'http://localhost:8080/api';
-
-  private apiUrlForDelears = 'http://localhost:8080/api/carsForDelearship';
-
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Returns User's id with the use of AFM.
+   * @param afm
+   */
+  private getIdByAfmURL= baseUrl + '/get-id';
+
   getIdByAfm(afm: string): Observable<number> {
-    return this.http.get<number>(`${this.apiOnly}/get-id`, { params: { afm } });
+    return this.http.get<number>(this.getIdByAfmURL, { params: { afm } });
   }
+
+  /**
+   * Returns all cars.
+   */
+  private getCarsURL = baseUrl + '/cars';
+
   getCars(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(this.getCarsURL);
   }
 
-  getCarsForDealers(dealerId: number | null): Observable<any[]> {
-    const url = `${this.apiUrlForDelears}?dealerID=${(dealerId)}`;
-    return this.http.get<any[]>(url);
+  /**
+   * Returns all cars for a specific Dealer.
+   * @param dealerID
+   */
+  private getCarsForDealersURL = baseUrl + '/carsForDelearship';
+
+  getCarsForDealers(dealerID: string): Observable<any[]> {
+    return this.http.get<any[]>(this.getCarsForDealersURL,{ params: { dealerID } });
   }
 
-  deleteCar(carId: number | null): Observable<any> {
-    if (!carId) {
-      throw new Error('Car ID is required');
-    }
-    const deleteUrl = `${this.apiOnly}/delete?carId=${carId}`;
-    return this.http.delete<any>(deleteUrl); // Use DELETE instead of POST
+  /**
+   * Delete the selected Car.
+   * @param carId
+   */
+  private deleteCarURL = baseUrl + '/delete';
+
+  deleteCar(carId: string): Observable<any> {
+    return this.http.delete<any>(this.deleteCarURL, { params: { carId } });
   }
 
-  purchaseCar(carId: number | null, options?: { headers?: HttpHeaders }): Observable<any> {
-    if (!carId) {
-      throw new Error('Car ID is required');
-    }
-
-    const purchaseUrl = `${this.apiOnly}/purchase?carId=${carId}`;
-
-    // Make a POST request with the carId and headers
-    return this.http.post<any>(purchaseUrl, {}, options);
+  /**
+   * Purchase the selected car.
+   * @param carId
+   * @param options
+   */
+  private purchaseCarURL = baseUrl + '/purchase';
+  purchaseCar(carId: string): Observable<any> {
+    return this.http.post<any>(`${this.purchaseCarURL}?carId=${carId}`,{});
   }
-
 }
