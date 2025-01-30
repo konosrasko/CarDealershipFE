@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import {DateTimePickerModalService} from './date-time-picker-modal.service';
 
 @Component({
   selector: 'app-date-time-picker-modal',
@@ -20,9 +21,11 @@ export class DateTimePickerModalComponent {
   isCalendarOpen = true;
   selectedDate: string | null = null;
   selectedTime: string | null = null;
-  private resrvationUrl = 'http://localhost:8080/api/reservation/test-drive';
 
-  constructor(private http: HttpClient) {}
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+
+  constructor(private dateTimePickerModalService: DateTimePickerModalService) {}
 
   closeCalendar(): void {
     this.isCalendarOpen = false;
@@ -30,7 +33,6 @@ export class DateTimePickerModalComponent {
   }
 
   submit(): void {
-
     const reservation = {
       citizenId: localStorage.getItem('userID'),
       carId: this.carId,     // Replace with actual carId
@@ -38,13 +40,16 @@ export class DateTimePickerModalComponent {
       reservationTime: this.selectedTime
     };
 
-    this.http.post(this.resrvationUrl, reservation).subscribe({
-      next: (response: any) => {
-        alert('Your reservation is booked for: ' + this.selectedDate + ' at ' + this.selectedTime);
-        console.log('Reservation successful:', response);
+    this.dateTimePickerModalService.createReservation(reservation).subscribe({
+      next: (response) => {
+        this.successMessage = response.message;
+        this.errorMessage = null;
+        alert(this.successMessage);
       },
-      error: (error: any) => {
-        console.error('Error while making a reservation:', error);
+      error: (error) => {
+        this.successMessage = null;
+        this.errorMessage = error.message;
+        alert(this.errorMessage);
       }
     });
 
