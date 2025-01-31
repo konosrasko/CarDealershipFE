@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, switchMap} from 'rxjs';
 
 //Base URL for all URLs
 var baseUrl = 'http://localhost:8080/api';
@@ -59,5 +59,25 @@ export class CarService {
   private purchaseCarURL = baseUrl + '/purchase';
   purchaseCar(carId: string): Observable<any> {
     return this.http.post<any>(`${this.purchaseCarURL}?carId=${carId}`,{});
+  }
+
+  /**
+   * Refresh data.
+   * @param userRole
+   */
+  refreshCars(userRole: string | null): Observable<any[]> {
+    const afm = <string>localStorage.getItem('afm');
+
+    return this.getIdByAfm(afm).pipe(
+      switchMap(id => {
+        localStorage.setItem('userID', String(id));
+
+        if (userRole === 'ROLE_CITIZEN') {
+          return this.getCars();
+        } else {
+          return this.getCarsForDealers(String(id));
+        }
+      })
+    );
   }
 }

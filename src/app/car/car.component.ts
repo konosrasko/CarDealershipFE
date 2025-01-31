@@ -80,6 +80,9 @@ export class CarComponent implements OnInit{
         this.successMessage = response.message;
         this.errorMessage = null;
         alert(this.successMessage);
+        this.carService.refreshCars(this.userRole).subscribe(data => {
+          this.rents = data;
+        });
       },
       error: (err) => {
         this.successMessage = null;
@@ -97,6 +100,9 @@ export class CarComponent implements OnInit{
         this.successMessage = response.message;
         this.errorMessage = null;
         alert(this.successMessage);
+        this.carService.refreshCars(this.userRole).subscribe(data => {
+          this.rents = data;
+        });
 
       },
       error: (err) => {
@@ -123,5 +129,6 @@ export class CarComponent implements OnInit{
     this.selectedModels = 'All';
     this.searchText = '';
   }
+
 
 }

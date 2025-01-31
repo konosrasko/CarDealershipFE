@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {CarService} from '../car/car.service';
+import {AddCarModalService, CarDTO} from './add-car-modal.service';
 
 @Component({
   selector: 'app-add-car-modal',
@@ -16,7 +18,7 @@ export class AddCarModalComponent implements OnInit {
 
   private readonly apiUrl = 'http://localhost:8080/api';
 
-  carData = {
+  carData: CarDTO = {
     brand: '',
     model: '',
     fuelType: '',
@@ -25,10 +27,10 @@ export class AddCarModalComponent implements OnInit {
     price: null,
     quantity: null,
     additionalInfo: '',
-    dealership: localStorage.getItem('userID'),
+    dealership: 0,  // Set default value for dealership
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private carService: AddCarModalService, private cService: CarService) {}
 
   ngOnInit() {
     if (this.carId !== null) {
@@ -57,17 +59,17 @@ export class AddCarModalComponent implements OnInit {
   }
 
   addCar() {
-    this.http.post(`${this.apiUrl}/car/add`, this.carData).subscribe({
-      next: (response) => {
-        console.log('Car added successfully:', response);
-        alert('Car added successfully!');
+    this.carData.dealership = <number><unknown>localStorage.getItem('userID')
+    this.carService.addCar(this.carData).subscribe(
+      (response: any) => {
+        alert('Car added successfully');
         this.closeModal();
+        window.location.reload();
       },
-      error: (err) => {
-        console.error('Error adding car:', err);
-        alert(`Failed to add car: ${err.error.message || err.message}`);
-      },
-    });
+      (error: any) => {
+        alert('Error adding car');
+      }
+    );
   }
 
   updateCar() {
@@ -78,6 +80,7 @@ export class AddCarModalComponent implements OnInit {
           console.log('Car updated successfully:', response);
           alert('Car updated successfully!');
           this.closeModal();
+          window.location.reload();
         },
         error: (err) => {
           console.error('Error updating car:', err);

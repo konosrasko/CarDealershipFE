@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationsService, Reservation } from './reservations.service';
 import {MatCard} from '@angular/material/card';
 import {NgForOf} from '@angular/common';
+import {SharedService} from '../shared/shared.service';
 
 @Component({
   selector: 'app-reservations-list',
@@ -16,10 +17,14 @@ export class ReservationsListComponent implements OnInit {
   reservations: Reservation[] = [];
   citizenID = localStorage.getItem('userID');
 
-  constructor(private reservationsService: ReservationsService) {}
+  constructor(private reservationsService: ReservationsService, private sharedService: SharedService) {}
 
   ngOnInit() {
     this.fetchReservations();
+
+    this.sharedService.refreshNeeded.subscribe(() => {
+      this.fetchReservations();
+    });
   }
 
   fetchReservations() {

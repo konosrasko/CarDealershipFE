@@ -3,6 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {DateTimePickerModalService} from './date-time-picker-modal.service';
+import {SharedService} from '../shared/shared.service';
 
 @Component({
   selector: 'app-date-time-picker-modal',
@@ -25,7 +26,7 @@ export class DateTimePickerModalComponent {
   successMessage: string | null = null;
   errorMessage: string | null = null;
 
-  constructor(private dateTimePickerModalService: DateTimePickerModalService) {}
+  constructor(private dateTimePickerModalService: DateTimePickerModalService, private sharedService: SharedService) {}
 
   closeCalendar(): void {
     this.isCalendarOpen = false;
@@ -45,6 +46,7 @@ export class DateTimePickerModalComponent {
         this.successMessage = response.message;
         this.errorMessage = null;
         alert(this.successMessage);
+        this.sharedService.requestRefresh();
       },
       error: (error) => {
         this.successMessage = null;
